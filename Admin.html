@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Consumer Rights India</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080f1e;--card:#0f1c35;--card2:#162340;--border:rgba(255,255,255,0.07);
+  --saffron:#FF6B00;--saffron2:#FFB347;--teal:#00BFA5;--teal2:#00897B;
+  --green:#4CAF50;--red:#EF5350;--blue:#42A5F5;--gold:#F9A825;
+  --purple:#CE93D8;--white:#fff;--muted:rgba(255,255,255,0.45);
+  --shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:var(--white);min-height:100vh}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes barGrow{from{height:4px}to{height:var(--h)}}
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+
+/* ── TOPBAR ── */
+.topbar{background:rgba(10,20,40,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,107,0,0.3);padding:0 1.5rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-size:1rem;font-weight:800}
+.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+.logo span{color:var(--saffron2)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.live-badge{display:flex;align-items:center;gap:6px;background:rgba(0,191,165,0.12);border:1px solid rgba(0,191,165,0.3);padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;color:var(--teal)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 1.5s infinite}
+.back-btn{display:flex;align-items:center;gap:6px;background:rgba(255,107,0,0.12);border:1px solid rgba(255,107,0,0.3);color:var(--saffron2);padding:7px 16px;border-radius:20px;font-size:0.78rem;font-weight:700;text-decoration:none;transition:all 0.2s}
+.back-btn:hover{background:rgba(255,107,0,0.22);transform:translateX(-2px)}
+.refresh-ico{width:32px;height:32px;border:none;border-radius:50%;background:rgba(255,255,255,0.07);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.95rem;transition:all 0.2s}
+.refresh-ico:hover{background:rgba(255,255,255,0.14);color:#fff;transform:rotate(90deg)}
+.refresh-ico.spinning svg{animation:spin 0.7s linear infinite}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1100px;margin:0 auto;padding:2rem 1.25rem}
+.page-title{margin-bottom:2rem;animation:fadeUp 0.5s ease}
+.page-title h1{font-size:1.8rem;font-weight:800;margin-bottom:4px}
+.page-title h1 span{color:var(--saffron2)}
+.page-title p{font-size:0.85rem;color:var(--muted)}
+.last-updated{font-size:0.72rem;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:5px}
+
+/* ── STAT CARDS ── */
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:2rem}
+@media(min-width:600px){.stat-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.stat-grid{grid-template-columns:repeat(6,1fr)}}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.2rem 1rem;text-align:center;animation:fadeUp 0.5s ease both;position:relative;overflow:hidden;transition:transform 0.2s,border-color 0.2s}
+.scard:hover{transform:translateY(-4px);border-color:rgba(255,179,71,0.25)}
+.scard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-from,transparent),var(--accent-to,transparent));opacity:0.04;pointer-events:none}
+.scard-ico{font-size:1.6rem;margin-bottom:6px;display:block}
+.scard-num{font-size:2rem;font-weight:800;line-height:1;margin-bottom:4px;display:block}
+.scard-lbl{font-size:0.68rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em}
+.scard-sub{font-size:0.7rem;margin-top:4px;font-weight:600}
+.c-orange{color:var(--saffron2)}.c-teal{color:var(--teal)}.c-green{color:var(--green)}.c-blue{color:var(--blue)}.c-gold{color:var(--gold)}.c-purple{color:var(--purple)}
+
+/* ── SECTION HEADERS ── */
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.sec-title{font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.sec-title::before{content:'';width:16px;height:2px;background:var(--saffron);border-radius:2px}
+
+/* ── TWO COLUMN ── */
+.two-col{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:2rem}
+@media(min-width:700px){.two-col{grid-template-columns:1fr 1fr}}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.4rem;animation:fadeUp 0.5s ease both}
+
+/* ── GRADE BARS ── */
+.grade-list{display:flex;flex-direction:column;gap:10px}
+.grade-row{display:flex;align-items:center;gap:10px}
+.grade-name{font-size:0.82rem;font-weight:600;width:130px;flex-shrink:0}
+.grade-track{flex:1;background:rgba(255,255,255,0.06);border-radius:6px;height:10px;overflow:hidden}
+.grade-fill{height:100%;border-radius:6px;transition:width 1s ease}
+.grade-count{width:30px;text-align:right;font-size:0.78rem;color:var(--muted)}
+
+/* ── SCORE DISTRIBUTION ── */
+.dist-wrap{display:flex;flex-direction:column;gap:12px}
+.dist-bars{display:flex;align-items:flex-end;gap:6px;height:120px}
+.dist-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
+.dist-bar{width:100%;border-radius:6px 6px 0 0;min-height:4px;transition:height 1s ease;cursor:default;position:relative}
+.dist-bar:hover::after{content:attr(data-val);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:0.7rem;color:var(--saffron2);font-weight:700;white-space:nowrap;background:var(--card);padding:1px 6px;border-radius:5px}
+.dist-label{font-size:0.62rem;color:var(--muted);text-align:center;line-height:1.2}
+.dist-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.dist-leg-item{display:flex;align-items:center;gap:5px;font-size:0.72rem;color:var(--muted)}
+.dist-leg-dot{width:8px;height:8px;border-radius:2px}
+
+/* ── RECENT TABLE ── */
+.recent-wrap{margin-bottom:2rem}
+.results-table{width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;animation:fadeUp 0.5s ease both}
+.rt-head{display:grid;grid-template-columns:40px 1fr 80px 100px 1fr;gap:0;background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);padding:0.75rem 1.25rem;font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted)}
+.rt-row{display:grid;grid-template-columns:40px 1fr 80px 100px 1fr;gap:0;padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);font-size:0.83rem;align-items:center;transition:background 0.15s}
+.rt-row:last-child{border-bottom:none}
+.rt-row:hover{background:rgba(255,255,255,0.03)}
+.row-num{color:var(--muted);font-size:0.72rem;font-weight:600}
+.score-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-weight:700;font-size:0.78rem}
+.pct-bar-wrap{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;flex:1}
+.pct-bar{height:100%;border-radius:3px;transition:width 0.8s ease}
+.time-cell{font-size:0.72rem;color:var(--muted)}
+.grade-cell{font-size:0.75rem;font-weight:700}
+@media(max-width:600px){
+  .rt-head,.rt-row{grid-template-columns:30px 1fr 70px 1fr}
+  .rt-head .h-pct,.rt-row .pct-col{display:none}
+}
+
+/* ── ACTIVITY CHART ── */
+.activity-panel{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.4rem;margin-bottom:2rem;animation:fadeUp 0.5s ease both}
+.activity-bars{display:flex;align-items:flex-end;gap:4px;height:80px;margin:1rem 0 0.5rem}
+.act-bar{flex:1;border-radius:3px 3px 0 0;min-height:3px;transition:height 0.8s ease;cursor:default;position:relative}
+.act-bar:hover::after{content:attr(data-val);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:0.65rem;color:var(--teal);font-weight:700;white-space:nowrap}
+.act-labels{display:flex;gap:4px;overflow:hidden}
+.act-lbl{flex:1;text-align:center;font-size:0.55rem;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
+/* ── EMPTY / LOADING ── */
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--muted)}
+.empty-ico{font-size:2.5rem;display:block;margin-bottom:0.75rem;opacity:0.4}
+.empty p{font-size:0.88rem}
+.loading{display:flex;align-items:center;justify-content:center;gap:10px;padding:2rem;color:var(--muted);font-size:0.88rem}
+.loading-dot{width:8px;height:8px;border-radius:50%;background:var(--saffron);animation:pulse 1s infinite}
+.loading-dot:nth-child(2){animation-delay:0.2s}
+.loading-dot:nth-child(3){animation-delay:0.4s}
+
+/* ── CLEAR BTN ── */
+.danger-zone{background:rgba(239,83,80,0.06);border:1px solid rgba(239,83,80,0.2);border-radius:16px;padding:1.25rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;animation:fadeUp 0.5s ease both}
+.dz-text h4{font-size:0.9rem;font-weight:700;color:var(--red);margin-bottom:2px}
+.dz-text p{font-size:0.78rem;color:var(--muted)}
+.clear-btn{background:rgba(239,83,80,0.15);border:1px solid rgba(239,83,80,0.35);color:var(--red);padding:8px 18px;border-radius:12px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:'Baloo 2',sans-serif;transition:all 0.2s}
+.clear-btn:hover{background:rgba(239,83,80,0.28)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:20px;background:var(--card2);border:1px solid rgba(0,191,165,0.4);border-radius:14px;padding:12px 20px;font-size:0.85rem;font-weight:600;color:var(--teal);z-index:999;transform:translateY(80px);opacity:0;transition:all 0.3s}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* ── NO DATA NOTICE ── */
+.notice{background:rgba(255,179,71,0.08);border:1px solid rgba(255,179,71,0.2);border-radius:14px;padding:1rem 1.25rem;font-size:0.85rem;color:rgba(255,179,71,0.8);margin-bottom:1.5rem;display:flex;align-items:flex-start;gap:10px;line-height:1.6;animation:fadeUp 0.4s ease}
+
+footer{text-align:center;padding:2rem 1.5rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border);margin-top:1rem}
+footer a{color:var(--saffron2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-dot"></div>
+    Consumer <span>Rights</span> &nbsp;·&nbsp; Admin
+  </div>
+  <div class="topbar-right">
+    <div class="live-badge"><div class="live-dot"></div> localStorage</div>
+    <button class="refresh-ico" id="refreshBtn" onclick="loadAll()" title="Refresh">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+    </button>
+    <a href="index.html" class="back-btn">← Website Pe Jaao</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrap">
+  <div class="page-title">
+    <h1>📊 Analytics <span>Dashboard</span></h1>
+    <p>Consumer Rights India — Quiz aur Visitor Data</p>
+    <div class="last-updated" id="lastUpdated">⏳ Loading...</div>
+  </div>
+
+  <!-- NOTICE (shown if no data) -->
+  <div class="notice" id="noDataNotice" style="display:none">
+    ⚠️ <span>Abhi koi data nahi hai. Pehle <a href="index.html" style="color:var(--saffron2)">index.html</a> pe jaao, kuch quiz khelo — phir yahan data dikhega. <strong>Note:</strong> Data same browser mein store hota hai.</span>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="stat-grid" id="statGrid">
+    <div class="scard" style="animation-delay:0.05s"><span class="scard-ico">👥</span><span class="scard-num c-orange" id="s-visits">—</span><div class="scard-lbl">Total Visits</div></div>
+    <div class="scard" style="animation-delay:0.1s"><span class="scard-ico">📅</span><span class="scard-num c-teal" id="s-today">—</span><div class="scard-lbl">Aaj ke Visits</div></div>
+    <div class="scard" style="animation-delay:0.15s"><span class="scard-ico">🧠</span><span class="scard-num c-blue" id="s-quizzes">—</span><div class="scard-lbl">Quiz Attempts</div></div>
+    <div class="scard" style="animation-delay:0.2s"><span class="scard-ico">📈</span><span class="scard-num c-green" id="s-avg">—</span><div class="scard-lbl">Avg Score</div></div>
+    <div class="scard" style="animation-delay:0.25s"><span class="scard-ico">🏆</span><span class="scard-num c-gold" id="s-best">—</span><div class="scard-lbl">Best Score</div></div>
+    <div class="scard" style="animation-delay:0.3s"><span class="scard-ico">✅</span><span class="scard-num c-purple" id="s-pass">—</span><div class="scard-lbl">Pass Rate</div></div>
+  </div>
+
+  <!-- ACTIVITY CHART -->
+  <div class="activity-panel">
+    <div class="sec-hdr">
+      <div class="sec-title">📆 Last 7 Din ka Activity</div>
+    </div>
+    <div class="activity-bars" id="actBars"></div>
+    <div class="act-labels" id="actLabels"></div>
+  </div>
+
+  <!-- GRADE + DISTRIBUTION -->
+  <div class="two-col">
+    <div class="panel" style="animation-delay:0.1s">
+      <div class="sec-hdr"><div class="sec-title">🏅 Grade Breakdown</div></div>
+      <div class="grade-list" id="gradeList"><div class="loading"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div></div>
+    </div>
+    <div class="panel" style="animation-delay:0.2s">
+      <div class="sec-hdr"><div class="sec-title">📊 Score Distribution</div></div>
+      <div class="dist-wrap" id="distWrap"><div class="loading"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div></div>
+    </div>
+  </div>
+
+  <!-- RECENT RESULTS TABLE -->
+  <div class="recent-wrap">
+    <div class="sec-hdr" style="margin-bottom:0.75rem"><div class="sec-title">🕐 Recent Quiz Results</div><span style="font-size:0.72rem;color:var(--muted)" id="resultCount"></span></div>
+    <div class="results-table" id="resultsTable">
+      <div class="loading"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div>
+    </div>
+  </div>
+
+  <!-- DANGER ZONE -->
+  <div class="danger-zone">
+    <div class="dz-text">
+      <h4>⚠️ Data Clear Karo</h4>
+      <p>Saara analytics data permanently delete ho jaayega. Yeh action undo nahi ho sakta.</p>
+    </div>
+    <button class="clear-btn" onclick="clearData()">🗑️ Saara Data Delete Karo</button>
+  </div>
+</div>
+
+<footer>
+  <p>Consumer Rights India — Admin Dashboard &nbsp;|&nbsp; <a href="index.html">← Main Website</a></p>
+  <p style="margin-top:4px">Data aapke browser ke localStorage mein store hai — same device pe hi dikhega.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── GRADE CONFIG ── */
+const GRADES=[
+  {key:'🏆 Expert',   color:'#F9A825',bg:'rgba(249,168,37,0.15)'},
+  {key:'🥇 Samajhdaar',color:'#4CAF50',bg:'rgba(76,175,80,0.15)'},
+  {key:'📚 Seekhne wale',color:'#42A5F5',bg:'rgba(66,165,245,0.15)'},
+  {key:'⚠️ Beginner', color:'#EF5350',bg:'rgba(239,83,80,0.15)'}
+];
+
+const SCORE_BUCKETS=[{label:'0–3',min:0,max:3},{label:'4–6',min:4,max:6},{label:'7–9',min:7,max:9},{label:'10–12',min:10,max:12},{label:'13–15',min:13,max:15}];
+const BUCKET_COLORS=['#EF5350','#FF8C42','#F9A825','#42A5F5','#4CAF50'];
+
+function getData(){
+  try{return JSON.parse(localStorage.getItem('cr_visits')||'[]');}catch{return[];}
+}
+function getResults(){
+  try{return JSON.parse(localStorage.getItem('cr_quiz_results')||'[]');}catch{return[];}
+}
+
+function fmt(isoStr){
+  try{
+    const d=new Date(isoStr);
+    return d.toLocaleString('hi-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+  }catch{return'—';}
+}
+
+function scoreColor(pct){
+  if(pct>=90)return'#F9A825';if(pct>=70)return'#4CAF50';if(pct>=50)return'#42A5F5';return'#EF5350';
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+function spinRefresh(on){
+  const b=document.getElementById('refreshBtn');
+  if(on)b.classList.add('spinning');else b.classList.remove('spinning');
+}
+
+function loadAll(){
+  spinRefresh(true);
+  setTimeout(()=>{
+    try{render();}catch(e){console.error(e);}
+    spinRefresh(false);
+    showToast('✅ Data refresh ho gaya!');
+  },400);
+}
+
+function render(){
+  const visits=getData();
+  const results=getResults();
+  const today=new Date().toDateString();
+  const todayV=visits.filter(v=>new Date(v.time).toDateString()===today).length;
+  const todayQ=results.filter(r=>new Date(r.time).toDateString()===today).length;
+  const totalQ=results.length;
+  const avgPct=totalQ>0?Math.round(results.reduce((s,r)=>s+r.pct,0)/totalQ):0;
+  const bestScore=totalQ>0?Math.max(...results.map(r=>r.score)):0;
+  const passCount=results.filter(r=>r.pct>=70).length;
+  const passRate=totalQ>0?Math.round((passCount/totalQ)*100):0;
+
+  /* last updated */
+  document.getElementById('lastUpdated').textContent='⏱ Last refresh: '+new Date().toLocaleTimeString('hi-IN');
+
+  /* show/hide no-data notice */
+  document.getElementById('noDataNotice').style.display=(totalQ===0&&visits.length===0)?'flex':'none';
+
+  /* ── STAT CARDS ── */
+  animNum('s-visits',visits.length);
+  animNum('s-today',todayV);
+  animNum('s-quizzes',totalQ);
+  document.getElementById('s-avg').textContent=totalQ>0?avgPct+'%':'—';
+  document.getElementById('s-best').textContent=totalQ>0?bestScore+'/15':'—';
+  document.getElementById('s-pass').textContent=totalQ>0?passRate+'%':'—';
+
+  /* ── ACTIVITY CHART (last 7 days) ── */
+  const days=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date();d.setDate(d.getDate()-i);
+    const ds=d.toDateString();
+    const label=i===0?'Aaj':d.toLocaleDateString('en-IN',{weekday:'short'});
+    const quizCount=results.filter(r=>new Date(r.time).toDateString()===ds).length;
+    const visitCount=visits.filter(v=>new Date(v.time).toDateString()===ds).length;
+    days.push({label,quizCount,visitCount});
+  }
+  const maxDay=Math.max(...days.map(d=>d.visitCount+d.quizCount),1);
+  const actBars=document.getElementById('actBars');
+  const actLabels=document.getElementById('actLabels');
+  actBars.innerHTML=days.map(d=>{
+    const h=Math.max(4,Math.round(((d.visitCount)/maxDay)*76));
+    const hq=Math.max(0,Math.round(((d.quizCount)/maxDay)*76));
+    return`<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;height:100%">
+      <div class="act-bar" style="background:rgba(0,191,165,0.6);height:${h}px" data-val="${d.visitCount} visits"></div>
+      ${d.quizCount>0?`<div class="act-bar" style="background:rgba(255,107,0,0.7);height:${hq}px" data-val="${d.quizCount} quiz"></div>`:''}
+    </div>`;
+  }).join('');
+  actLabels.innerHTML=days.map(d=>`<div class="act-lbl">${d.label}</div>`).join('');
+
+  /* ── GRADE BARS ── */
+  const gradeCounts={};
+  GRADES.forEach(g=>gradeCounts[g.key]=0);
+  results.forEach(r=>{if(gradeCounts[r.grade]!==undefined)gradeCounts[r.grade]++;});
+  const maxG=Math.max(...Object.values(gradeCounts),1);
+  document.getElementById('gradeList').innerHTML=totalQ===0
+    ?`<div class="empty"><span class="empty-ico">🏅</span><p>Quiz results aane par dikhega</p></div>`
+    :GRADES.map(g=>`
+    <div class="grade-row">
+      <div class="grade-name" style="color:${g.color}">${g.key}</div>
+      <div class="grade-track"><div class="grade-fill" style="width:${Math.round((gradeCounts[g.key]/maxG)*100)}%;background:${g.color}"></div></div>
+      <div class="grade-count">${gradeCounts[g.key]}</div>
+    </div>`).join('');
+
+  /* ── SCORE DISTRIBUTION ── */
+  const buckets=SCORE_BUCKETS.map(b=>({...b,count:results.filter(r=>r.score>=b.min&&r.score<=b.max).length}));
+  const maxB=Math.max(...buckets.map(b=>b.count),1);
+  document.getElementById('distWrap').innerHTML=totalQ===0
+    ?`<div class="empty"><span class="empty-ico">📊</span><p>Quiz results aane par dikhega</p></div>`
+    :`<div class="dist-bars">${buckets.map((b,i)=>{
+      const h=Math.max(4,Math.round((b.count/maxB)*108));
+      return`<div class="dist-bar-col"><div class="dist-bar" style="height:${h}px;background:${BUCKET_COLORS[i]}" data-val="${b.count} log"></div><div class="dist-label">${b.label}</div></div>`;
+    }).join('')}</div>
+    <div class="dist-legend">
+      <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#EF5350"></div>0-3 (Bahut Kam)</div>
+      <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#4CAF50"></div>13-15 (Expert)</div>
+    </div>`;
+
+  /* ── RESULTS TABLE ── */
+  const recent=[...results].reverse().slice(0,30);
+  document.getElementById('resultCount').textContent=`(${totalQ} total, last 30 dikh rahe)`;
+  if(recent.length===0){
+    document.getElementById('resultsTable').innerHTML=`<div class="empty"><span class="empty-ico">🧠</span><p>Abhi koi quiz attempt nahi hua. <a href="index.html" style="color:var(--saffron2)">Pehle quiz khelo!</a></p></div>`;
+    return;
+  }
+  const headRow=`<div class="rt-head"><div>#</div><div>Score</div><div>Grade</div><div class="h-pct">Progress</div><div>Time</div></div>`;
+  const rows=recent.map((r,i)=>{
+    const c=scoreColor(r.pct);
+    return`<div class="rt-row">
+      <div class="row-num">${i+1}</div>
+      <div><span class="score-badge" style="background:${c}22;color:${c}">${r.score}/15 (${r.pct}%)</span></div>
+      <div class="grade-cell" style="color:${scoreColor(r.pct)}">${r.grade||'—'}</div>
+      <div class="pct-col"><div class="pct-bar-wrap"><div class="pct-bar" style="width:${r.pct}%;background:${c}"></div></div></div>
+      <div class="time-cell">${fmt(r.time)}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('resultsTable').innerHTML=headRow+rows;
+}
+
+function animNum(id,target){
+  const el=document.getElementById(id);
+  if(target===0){el.textContent='0';return;}
+  let start=0,dur=800,step=Math.ceil(target/30);
+  const iv=setInterval(()=>{
+    start=Math.min(start+step,target);
+    el.textContent=start;
+    if(start>=target)clearInterval(iv);
+  },dur/30);
+}
+
+function clearData(){
+  if(!confirm('Sach mein saara data delete karna hai? Yeh undo nahi hoga!'))return;
+  localStorage.removeItem('cr_visits');
+  localStorage.removeItem('cr_quiz_results');
+  showToast('🗑️ Saara data delete ho gaya!');
+  setTimeout(loadAll,600);
+}
+
+/* ── INIT ── */
+window.addEventListener('load',loadAll);
+/* auto-refresh every 30s */
+setInterval(()=>{render();document.getElementById('lastUpdated').textContent='⏱ Auto-refresh: '+new Date().toLocaleTimeString('hi-IN');},30000);
+</script>
+</body>
+</html>
