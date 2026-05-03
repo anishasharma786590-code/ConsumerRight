@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consumer Rights India — आपके अधिकार, आपकी शक्ति</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -25,18 +25,12 @@ html{scroll-behavior:smooth}
 body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
 
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
-@keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
 @keyframes scaleIn{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,107,0,0.4)}50%{box-shadow:0 0 0 16px rgba(255,107,0,0)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-@keyframes wave{0%,100%{transform:scaleY(1)}50%{transform:scaleY(0.6)}}
 @keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(120px) rotate(360deg);opacity:0}}
-
-.anim-fade-up{opacity:0;animation:fadeInUp 0.7s ease forwards}
-.anim-scale{opacity:0;animation:scaleIn 0.5s ease forwards}
 
 .hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem 5rem;position:relative;overflow:hidden}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
@@ -44,11 +38,11 @@ body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:var(--text);lin
 .hero-orb2{position:absolute;bottom:-120px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,137,123,0.16) 0%,transparent 70%);pointer-events:none;animation:float 10s ease-in-out infinite reverse}
 .hero-particles{position:absolute;inset:0;pointer-events:none}
 .particle{position:absolute;width:4px;height:4px;border-radius:50%;background:rgba(255,179,71,0.4);animation:float var(--dur,6s) ease-in-out infinite;animation-delay:var(--delay,0s)}
-.flag-bar{display:flex;width:120px;height:6px;border-radius:3px;overflow:hidden;margin:0 auto 1.5rem;animation:fadeInUp 0.6s ease both}
+.flag-bar{display:flex;width:120px;height:6px;border-radius:3px;overflow:hidden;margin:0 auto 1.5rem}
 .fs{background:#FF9933;flex:1}.fw{background:#fff;flex:1}.fg{background:#138808;flex:1}
 .hero-emblem{position:relative;margin:0 auto 1.5rem;width:120px;height:120px;display:flex;align-items:center;justify-content:center;animation:scaleIn 0.8s ease both 0.2s}
 .hero-emblem-ring{position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(255,179,71,0.3);animation:spin-slow 20s linear infinite}
-.hero-emblem img{width:90px;height:90px;object-fit:contain;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(255,179,71,0.5))}
+.hero-emblem-ico{font-size:4rem;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(255,179,71,0.5))}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.35);color:var(--saffron2);padding:7px 20px;border-radius:30px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;margin-bottom:1.2rem;animation:fadeInUp 0.6s ease both 0.4s}
 .hero h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:0.6rem;animation:fadeInUp 0.7s ease both 0.5s}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,#FFB347,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -77,10 +71,9 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .desc{color:var(--muted);font-size:0.95rem;max-width:600px;margin-bottom:2rem;line-height:1.7}
 
 .illus-section{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:2.5rem}
-.illus-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.3s,box-shadow 0.3s;cursor:default}
+.illus-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.3s,box-shadow 0.3s}
 .illus-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:var(--shadow2)}
-.illus-art{height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.illus-art svg{animation:float 5s ease-in-out infinite}
+.illus-art{height:130px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
 .illus-text{padding:1rem 1.2rem}
 .illus-text h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
 .illus-text p{font-size:0.82rem;color:var(--muted);line-height:1.5}
@@ -93,12 +86,10 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .rcard:nth-child(3)::before{background:var(--green)}.rcard:nth-child(4)::before{background:var(--purple)}
 .rcard:nth-child(5)::before{background:var(--teal)}.rcard:nth-child(6)::before{background:var(--gold)}
 .rnum{font-size:3rem;font-weight:800;color:var(--bg);position:absolute;top:6px;right:12px;line-height:1}
-.rico{font-size:2.2rem;margin-bottom:10px}
-.rcard h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.3}
+.rcard-ico{font-size:2rem;margin-bottom:10px;display:block}
+.rcard h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:5px}
 .rcard p{font-size:0.8rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
 .tap-hint{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:10px}
-.rcard-art{margin-bottom:12px;height:80px;display:flex;align-items:center;justify-content:center}
-.rcard-art svg{animation:float 4s ease-in-out infinite;animation-delay:var(--art-delay,0s)}
 
 .modal-overlay{position:fixed;inset:0;background:rgba(10,20,40,0.75);backdrop-filter:blur(6px);z-index:999;display:flex;align-items:flex-end;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s}
 .modal-overlay.open{opacity:1;visibility:visible}
@@ -106,10 +97,10 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .modal-overlay.open .modal-box{transform:translateY(0)}
 .modal-handle{width:40px;height:4px;background:rgba(0,0,0,0.15);border-radius:4px;margin:14px auto 0}
 .modal-top{padding:1.25rem 1.5rem 1rem;border-bottom:1px solid rgba(0,0,0,0.07)}
-.modal-close{float:right;width:34px;height:34px;border:none;border-radius:50%;background:var(--bg);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;color:var(--muted);line-height:1}
+.modal-close{float:right;width:34px;height:34px;border:none;border-radius:50%;background:var(--bg);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;color:var(--muted)}
 .m-ico{font-size:2.5rem;margin-bottom:0.5rem;display:block}
 .m-badge{display:inline-block;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:10px;margin-bottom:0.5rem}
-.m-title{font-size:1.4rem;font-weight:800;color:var(--navy);line-height:1.2}
+.m-title{font-size:1.4rem;font-weight:800;color:var(--navy)}
 .modal-body{padding:1.25rem 1.5rem}
 .modal-body h4{font-size:1rem;font-weight:700;color:var(--navy);margin:1.2rem 0 0.4rem}
 .modal-body h4:first-child{margin-top:0}
@@ -117,7 +108,6 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .m-example{background:var(--bg);border-radius:14px;padding:1rem 1.2rem;margin:1rem 0}
 .m-ex-lbl{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
 .m-tip{border-radius:12px;padding:0.9rem 1.1rem;margin-top:1rem;display:flex;gap:10px;align-items:flex-start}
-.m-tip-ico{font-size:1.2rem;flex-shrink:0;margin-top:2px}
 .m-tip p{font-size:0.85rem;font-weight:600;margin:0;line-height:1.5}
 
 .steps{display:flex;flex-direction:column;gap:0;position:relative}
@@ -131,7 +121,6 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .stp-body p{font-size:0.83rem;color:var(--muted);line-height:1.55}
 
 .helpline-big{background:linear-gradient(135deg,var(--teal),#00695C);border-radius:24px;padding:2rem 1.5rem;margin-top:1.75rem;text-align:center;position:relative;overflow:hidden}
-.helpline-big::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.05)}
 .hl-label{font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px}
 a.hl-num{font-size:2.5rem;font-weight:800;color:var(--gold);display:block;text-decoration:none;letter-spacing:0.06em;margin-bottom:4px;transition:transform 0.2s;animation:pulse-glow 3s ease-in-out infinite}
 a.hl-num:hover{transform:scale(1.04)}
@@ -140,7 +129,6 @@ a.hl-num:hover{transform:scale(1.04)}
 .hl-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:11px 22px;border-radius:30px;font-size:0.85rem;font-weight:700;text-decoration:none;transition:all 0.2s}
 .hl-btn:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px)}
 .hl-btn.primary{background:#fff;color:var(--teal)}
-.hl-btn.primary:hover{background:var(--teal-light)}
 
 .ex-grid{display:flex;flex-direction:column;gap:18px}
 .excard{background:var(--white);border-radius:18px;padding:1.5rem;box-shadow:var(--shadow);border-left:6px solid;transition:transform 0.2s}
@@ -150,7 +138,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .t-red{background:var(--red-light);color:var(--red)}.t-blue{background:var(--blue-light);color:var(--blue)}.t-gold{background:var(--gold-light);color:#7B5E00}
 .excard h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:6px}
 .excard .story{font-size:0.88rem;color:var(--muted);margin-bottom:0.9rem;line-height:1.6}
-.ex-tip{background:var(--green-light);border-radius:12px;padding:10px 14px;font-size:0.83rem;color:var(--green);font-weight:600;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.ex-tip{background:var(--green-light);border-radius:12px;padding:10px 14px;font-size:0.83rem;color:var(--green);font-weight:600;display:flex;align-items:flex-start;gap:8px}
 
 .law-wrap{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,var(--navy3) 100%);border-radius:24px;padding:2.25rem;position:relative;overflow:hidden;margin-top:1rem}
 .law-wrap::after{content:'2019';position:absolute;right:-15px;bottom:-25px;font-size:9rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1}
@@ -166,8 +154,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .resp-list{display:flex;flex-direction:column;gap:14px}
 .ri{background:var(--white);border-radius:16px;padding:1.1rem 1.25rem;box-shadow:var(--shadow);display:flex;align-items:flex-start;gap:16px;transition:transform 0.2s}
 .ri:hover{transform:translateX(4px)}
-.ri-icon{width:50px;height:50px;border-radius:14px;background:var(--saffron-light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform 0.3s}
-.ri:hover .ri-icon{transform:rotate(-10deg) scale(1.1)}
+.ri-icon{width:50px;height:50px;border-radius:14px;background:var(--saffron-light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
 .ri h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:3px}
 .ri p{font-size:0.83rem;color:var(--muted);line-height:1.5}
 
@@ -176,7 +163,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .quiz-header{text-align:center;margin-bottom:2rem}
 .quiz-header .lbl{background:rgba(255,179,71,0.15);color:var(--saffron2);border-color:rgba(255,179,71,0.3)}
 .quiz-header .h2{color:#fff}
-.quiz-header .desc{color:rgba(255,255,255,0.6);margin:0 auto 0}
+.quiz-header .desc{color:rgba(255,255,255,0.6);margin:0 auto}
 .quiz-progress-bar{background:rgba(255,255,255,0.1);border-radius:8px;height:8px;margin-bottom:0.5rem;overflow:hidden}
 .quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--teal2),var(--saffron));border-radius:8px;transition:width 0.5s ease}
 .quiz-info{display:flex;justify-content:space-between;font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:1.5rem}
@@ -229,72 +216,22 @@ footer p{font-size:0.82rem;line-height:1.9}
 footer a{color:var(--saffron2);text-decoration:none;font-weight:600}
 footer a:hover{text-decoration:underline}
 .f-div{height:1px;background:rgba(255,255,255,0.1);margin:1.25rem 0}
+.admin-link{font-size:0.65rem;color:rgba(255,255,255,0.15);text-decoration:none;margin-top:1rem;display:inline-block;transition:color 0.3s}
+.admin-link:hover{color:rgba(255,179,71,0.5)}
 
 .scroll-anim{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
 .scroll-anim.visible{opacity:1;transform:translateY(0)}
-
-/* ===== ANALYTICS STYLES ===== */
-#admin-btn{
-  position:fixed;bottom:24px;right:20px;z-index:500;
-  background:linear-gradient(135deg,var(--navy),var(--navy3));
-  color:rgba(255,255,255,0.7);border:1px solid rgba(255,179,71,0.3);
-  padding:10px 16px;border-radius:30px;font-size:0.8rem;font-weight:700;
-  cursor:pointer;font-family:'Baloo 2',sans-serif;
-  box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:all 0.2s;
-  display:flex;align-items:center;gap:7px;
-}
-#admin-btn:hover{background:var(--navy2);color:var(--saffron2);transform:translateY(-2px)}
-#admin-btn .dot{width:8px;height:8px;border-radius:50%;background:var(--teal2);display:inline-block;animation:pulse-glow 2s infinite}
-
-.analytics-overlay{position:fixed;inset:0;background:rgba(5,12,30,0.88);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:all 0.3s}
-.analytics-overlay.open{opacity:1;visibility:visible}
-.analytics-box{background:var(--navy2);border:1px solid rgba(255,179,71,0.2);border-radius:24px;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;transform:scale(0.92);transition:transform 0.3s cubic-bezier(0.34,1.2,0.64,1)}
-.analytics-overlay.open .analytics-box{transform:scale(1)}
-.a-header{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between}
-.a-title{font-size:1.1rem;font-weight:800;color:#fff}
-.a-title span{color:var(--saffron2)}
-.a-close{width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,0.08);cursor:pointer;color:rgba(255,255,255,0.6);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:sans-serif}
-.a-close:hover{background:rgba(255,255,255,0.15);color:#fff}
-.a-body{padding:1.25rem 1.5rem}
-.a-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.5rem}
-.a-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1rem;text-align:center}
-.a-stat .num{font-size:2rem;font-weight:800;color:var(--saffron2);display:block;line-height:1}
-.a-stat .lbl2{font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:5px;display:block}
-.a-section{margin-bottom:1.5rem}
-.a-section-title{font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.75rem;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.grade-bars{display:flex;flex-direction:column;gap:8px}
-.grade-bar-row{display:flex;align-items:center;gap:10px;font-size:0.83rem}
-.grade-bar-label{width:100px;color:rgba(255,255,255,0.65);font-weight:600;flex-shrink:0}
-.grade-bar-track{flex:1;background:rgba(255,255,255,0.06);border-radius:6px;height:10px;overflow:hidden}
-.grade-bar-fill{height:100%;border-radius:6px;transition:width 0.8s ease}
-.grade-bar-count{width:28px;text-align:right;color:rgba(255,255,255,0.5);font-size:0.78rem}
-.recent-list{display:flex;flex-direction:column;gap:8px;max-height:220px;overflow-y:auto}
-.r-item{background:rgba(255,255,255,0.04);border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(255,255,255,0.06)}
-.r-item-left .r-score{font-size:1.1rem;font-weight:800;color:var(--saffron2)}
-.r-item-left .r-grade{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:1px}
-.r-item-right{text-align:right}
-.r-item-right .r-time{font-size:0.75rem;color:rgba(255,255,255,0.35)}
-.score-dist{display:flex;align-items:flex-end;gap:4px;height:80px;padding-top:8px}
-.sd-bar{flex:1;background:rgba(255,179,71,0.2);border-radius:4px 4px 0 0;min-height:4px;transition:height 0.8s ease;cursor:default;position:relative}
-.sd-bar:hover::after{content:attr(data-count);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:0.7rem;color:var(--saffron2);font-weight:700;white-space:nowrap}
-.sd-labels{display:flex;gap:4px;margin-top:5px}
-.sd-lbl{flex:1;text-align:center;font-size:0.62rem;color:rgba(255,255,255,0.3)}
-.no-data{color:rgba(255,255,255,0.3);font-size:0.88rem;text-align:center;padding:1.5rem;font-style:italic}
-.refresh-btn{background:rgba(255,179,71,0.12);border:1px solid rgba(255,179,71,0.25);color:var(--saffron2);padding:8px 16px;border-radius:20px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Baloo 2',sans-serif;transition:all 0.2s;margin-top:1rem;width:100%}
-.refresh-btn:hover{background:rgba(255,179,71,0.2);transform:none}
 
 @media(max-width:480px){
   .rights-grid,.illus-section{grid-template-columns:1fr}
   .hero h1{font-size:2rem}
   .stat-num{font-size:1.5rem}
   .q-text{font-size:1rem}
-  .a-stats-row{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
 <div class="hero" id="home">
   <div class="hero-grid"></div>
   <div class="hero-orb1"></div>
@@ -303,7 +240,7 @@ footer a:hover{text-decoration:underline}
   <div class="flag-bar"><div class="fs"></div><div class="fw"></div><div class="fg"></div></div>
   <div class="hero-emblem">
     <div class="hero-emblem-ring"></div>
-    <img src="D:\consumer right\Top.png" alt="Consumer Rights India" style="width:90px;height:90px;object-fit:contain;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(255,179,71,0.5));"/>
+    <span class="hero-emblem-ico">⚖️</span>
   </div>
   <div class="hero-badge">🇮🇳 Consumer Protection Act 2019</div>
   <h1>आपके <em>अधिकार</em><br>आपकी शक्ति</h1>
@@ -314,11 +251,10 @@ footer a:hover{text-decoration:underline}
     <div class="stat-pill" style="animation-delay:1s"><span class="stat-num">1800</span><span class="stat-label">Free Helpline</span></div>
     <div class="stat-pill" style="animation-delay:1.15s"><span class="stat-num">15</span><span class="stat-label">Quiz Sawaal</span></div>
   </div>
-  <a href="#intro" class="cta-btn">📖 Jaankari Lein &nbsp;→</a>
+  <a href="#intro" class="cta-btn">📖 Jaankari Lein →</a>
   <div class="scroll-hint"><div class="scroll-arr"></div><span>Scroll karo</span></div>
 </div>
 
-<!-- ===== NAV ===== -->
 <nav>
   <div class="nav-wrap">
     <a href="#intro" class="nlink">📖 Parichay</a>
@@ -331,132 +267,48 @@ footer a:hover{text-decoration:underline}
   </div>
 </nav>
 
-<!-- ===== INTRO ===== -->
 <section class="sec" id="intro">
   <div class="lbl scroll-anim">📖 Section 1 — Parichay</div>
   <h2 class="h2 scroll-anim">Consumer kaun hota hai?</h2>
   <p class="desc scroll-anim">Har woh insaan jo koi cheez khareedta hai ya service leta hai — woh Consumer hai. Market se sabzi, ya app se order — sab consumer hain.</p>
   <div class="illus-section scroll-anim">
     <div class="illus-card">
-      <div class="illus-art" style="background:linear-gradient(135deg,#FFF3E8,#FFE0C2)">
-        <svg width="120" height="110" viewBox="0 0 120 110">
-          <circle cx="60" cy="25" r="14" fill="#FF8C42" opacity="0.9"/>
-          <rect x="46" y="40" width="28" height="30" rx="8" fill="#FF6B00" opacity="0.85"/>
-          <rect x="38" y="42" width="10" height="20" rx="5" fill="#FF8C42"/>
-          <rect x="72" y="42" width="10" height="20" rx="5" fill="#FF8C42"/>
-          <rect x="50" y="72" width="8" height="18" rx="4" fill="#CC5500"/>
-          <rect x="62" y="72" width="8" height="18" rx="4" fill="#CC5500"/>
-          <rect x="72" y="55" width="28" height="22" rx="6" fill="#FFB347"/>
-          <path d="M78 55 Q78 48 86 48 Q94 48 94 55" stroke="#FF6B00" stroke-width="2" fill="none"/>
-          <text x="79" y="70" fill="white" font-size="10" font-weight="bold">₹</text>
-        </svg>
-      </div>
-      <div class="illus-text"><h3>🛒 Consumer = Khareedaar</h3><p>Jo goods ya services personal use ke liye purchase karta hai — woh consumer hai.</p></div>
+      <div class="illus-art" style="background:linear-gradient(135deg,#FFF3E8,#FFE0C2)">🛒</div>
+      <div class="illus-text"><h3>🛒 Consumer = Khareedaar</h3><p>Jo goods ya services personal use ke liye purchase karta hai — woh consumer hai. Business ke liye nahi.</p></div>
     </div>
     <div class="illus-card">
-      <div class="illus-art" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)">
-        <svg width="120" height="110" viewBox="0 0 120 110">
-          <path d="M60 15 L90 28 L90 58 Q90 80 60 95 Q30 80 30 58 L30 28 Z" fill="#2E7D32" opacity="0.85"/>
-          <path d="M30 37 L38 45 L52 30" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="22" cy="75" r="6" fill="#66BB6A"/>
-          <rect x="17" y="82" width="10" height="12" rx="3" fill="#4CAF50"/>
-          <circle cx="98" cy="75" r="6" fill="#66BB6A"/>
-          <rect x="93" y="82" width="10" height="12" rx="3" fill="#4CAF50"/>
-        </svg>
-      </div>
-      <div class="illus-text"><h3>🛡️ Rights Kyun Zaroori?</h3><p>Takki koi bhi company ya dukandaar aapko cheat na kar sake.</p></div>
+      <div class="illus-art" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)">🛡️</div>
+      <div class="illus-text"><h3>🛡️ Rights Kyun Zaroori?</h3><p>Takki koi bhi company ya dukandaar aapko cheat na kar sake. Fairness aur safety ensure ho.</p></div>
     </div>
     <div class="illus-card">
-      <div class="illus-art" style="background:linear-gradient(135deg,#FFEBEE,#FFCDD2)">
-        <svg width="120" height="110" viewBox="0 0 120 110">
-          <polygon points="60,15 95,80 25,80" fill="#EF5350" opacity="0.8"/>
-          <text x="55" y="58" fill="white" font-size="24" font-weight="bold">!</text>
-          <rect x="10" y="82" width="20" height="14" rx="3" fill="#EF9A9A"/>
-          <text x="13" y="93" fill="#C62828" font-size="7">FAKE</text>
-          <rect x="90" y="82" width="20" height="14" rx="3" fill="#EF9A9A"/>
-          <text x="93" y="93" fill="#C62828" font-size="7">FAKE</text>
-        </svg>
-      </div>
+      <div class="illus-art" style="background:linear-gradient(135deg,#FFEBEE,#FFCDD2)">⚠️</div>
       <div class="illus-text"><h3>⚠️ Bina Rights ke?</h3><p>Nakli product, galat price, kharab service — sab chalta rahega agar aap chup rahein.</p></div>
     </div>
     <div class="illus-card">
-      <div class="illus-art" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)">
-        <svg width="120" height="110" viewBox="0 0 120 110">
-          <rect x="42" y="45" width="36" height="45" rx="10" fill="#1565C0" opacity="0.85"/>
-          <rect x="42" y="32" width="8" height="20" rx="4" fill="#1976D2"/>
-          <rect x="52" y="28" width="8" height="22" rx="4" fill="#1976D2"/>
-          <rect x="62" y="30" width="8" height="20" rx="4" fill="#1976D2"/>
-          <rect x="72" y="34" width="8" height="18" rx="4" fill="#1976D2"/>
-          <text x="85" y="30" fill="#1565C0" font-size="16">★</text>
-        </svg>
-      </div>
-      <div class="illus-text"><h3>💪 Rights ke Saath</h3><p>Complain karo, compensation maango aur Consumer Forum mein justice pao.</p></div>
+      <div class="illus-art" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)">💪</div>
+      <div class="illus-text"><h3>💪 Rights ke Saath</h3><p>Aap complain kar sakte ho, compensation maang sakte ho aur Consumer Forum mein justice pa sakte ho.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== RIGHTS ===== -->
 <div class="sec-alt" id="rights">
   <div class="sec-inner">
     <div class="lbl scroll-anim">⚖️ Section 2 — Mukhya Adhikar</div>
     <h2 class="h2 scroll-anim">6 Consumer Rights</h2>
     <p class="desc scroll-anim">India mein Consumer Protection Act ke under ye 6 basic rights milte hain. <strong>Kisi bhi card par click karo</strong> — poori detail, example aur tips ke saath:</p>
     <div class="rights-grid">
-      <div class="rcard scroll-anim" onclick="openModal(0)">
-        <div class="rnum">1</div>
-        <div class="rcard-art" style="--art-delay:0s">
-          <svg width="80" height="70" viewBox="0 0 80 70"><path d="M40 5 L65 18 L65 40 Q65 58 40 68 Q15 58 15 40 L15 18 Z" fill="#FFEBEE" stroke="#C62828" stroke-width="2"/><path d="M30 37 L38 45 L52 30" stroke="#C62828" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3>Right to Safety</h3><p>Harmful products se protection ka adhikar.</p>
-        <div class="tap-hint" style="color:var(--red);background:var(--red-light)">👆 Click karo — Full Detail</div>
-      </div>
-      <div class="rcard scroll-anim" onclick="openModal(1)">
-        <div class="rnum">2</div>
-        <div class="rcard-art" style="--art-delay:0.2s">
-          <svg width="80" height="70" viewBox="0 0 80 70"><rect x="12" y="10" width="56" height="50" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/><rect x="20" y="22" width="40" height="4" rx="2" fill="#1565C0" opacity="0.5"/><rect x="20" y="30" width="30" height="4" rx="2" fill="#1565C0" opacity="0.4"/><rect x="20" y="38" width="35" height="4" rx="2" fill="#1565C0" opacity="0.3"/><circle cx="55" cy="15" r="8" fill="#1565C0"/><text x="52" y="19" fill="white" font-size="10" font-weight="bold">i</text></svg>
-        </div>
-        <h3>Right to Information</h3><p>Product ki sari jaankari paane ka adhikar.</p>
-        <div class="tap-hint" style="color:var(--blue);background:var(--blue-light)">👆 Click karo — Full Detail</div>
-      </div>
-      <div class="rcard scroll-anim" onclick="openModal(2)">
-        <div class="rnum">3</div>
-        <div class="rcard-art" style="--art-delay:0.4s">
-          <svg width="80" height="70" viewBox="0 0 80 70"><rect x="8" y="25" width="20" height="28" rx="6" fill="#C8E6C9" stroke="#2E7D32" stroke-width="1.5"/><rect x="30" y="18" width="20" height="35" rx="6" fill="#A5D6A7" stroke="#2E7D32" stroke-width="1.5"/><rect x="52" y="30" width="20" height="23" rx="6" fill="#C8E6C9" stroke="#2E7D32" stroke-width="1.5"/><circle cx="40" cy="10" r="6" fill="#2E7D32"/><path d="M36 10 L38 12 L44 6" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Right to Choose</h3><p>Apni marzi se product chunne ka adhikar.</p>
-        <div class="tap-hint" style="color:var(--green);background:var(--green-light)">👆 Click karo — Full Detail</div>
-      </div>
-      <div class="rcard scroll-anim" onclick="openModal(3)">
-        <div class="rnum">4</div>
-        <div class="rcard-art" style="--art-delay:0.6s">
-          <svg width="80" height="70" viewBox="0 0 80 70"><circle cx="30" cy="32" r="18" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2"/><rect x="26" y="44" width="8" height="14" rx="3" fill="#6A1B9A"/><text x="48" y="25" fill="#6A1B9A" font-size="16">🗣</text></svg>
-        </div>
-        <h3>Right to be Heard</h3><p>Aapki baat sunni jaaye — Forum tak.</p>
-        <div class="tap-hint" style="color:var(--purple);background:var(--purple-light)">👆 Click karo — Full Detail</div>
-      </div>
-      <div class="rcard scroll-anim" onclick="openModal(4)">
-        <div class="rnum">5</div>
-        <div class="rcard-art" style="--art-delay:0.8s">
-          <svg width="80" height="70" viewBox="0 0 80 70"><rect x="37" y="10" width="6" height="42" rx="2" fill="#00897B"/><rect x="20" y="10" width="40" height="4" rx="2" fill="#00BFA5"/><rect x="24" y="50" width="32" height="6" rx="2" fill="#00695C"/><text x="26" y="58" fill="#00BFA5" font-size="7" font-weight="bold">JUSTICE</text></svg>
-        </div>
-        <h3>Right to Seek Redressal</h3><p>Cheated hone par compensation ka adhikar.</p>
-        <div class="tap-hint" style="color:var(--teal);background:var(--teal-light)">👆 Click karo — Full Detail</div>
-      </div>
-      <div class="rcard scroll-anim" onclick="openModal(5)">
-        <div class="rnum">6</div>
-        <div class="rcard-art" style="--art-delay:1s">
-          <svg width="80" height="70" viewBox="0 0 80 70"><path d="M10 20 Q40 15 40 15 Q40 15 70 20 L70 58 Q40 53 40 53 Q40 53 10 58 Z" fill="#FFFDE7" stroke="#F9A825" stroke-width="1.5"/><line x1="40" y1="15" x2="40" y2="53" stroke="#F9A825" stroke-width="1.5"/><circle cx="60" cy="12" r="8" fill="#F9A825"/><text x="57" y="16" fill="white" font-size="10" font-weight="bold">✓</text></svg>
-        </div>
-        <h3>Right to Consumer Education</h3><p>Apne rights jaanne ka pura haq.</p>
-        <div class="tap-hint" style="color:#7B5E00;background:var(--gold-light)">👆 Click karo — Full Detail</div>
-      </div>
+      <div class="rcard scroll-anim" onclick="openModal(0)"><div class="rnum">1</div><span class="rcard-ico">🛡️</span><h3>Right to Safety</h3><p>Harmful products se protection ka adhikar.</p><div class="tap-hint" style="color:var(--red);background:var(--red-light)">👆 Detail dekhein</div></div>
+      <div class="rcard scroll-anim" onclick="openModal(1)"><div class="rnum">2</div><span class="rcard-ico">📋</span><h3>Right to Information</h3><p>Product ki sari jaankari paane ka adhikar.</p><div class="tap-hint" style="color:var(--blue);background:var(--blue-light)">👆 Detail dekhein</div></div>
+      <div class="rcard scroll-anim" onclick="openModal(2)"><div class="rnum">3</div><span class="rcard-ico">🤔</span><h3>Right to Choose</h3><p>Apni marzi se product chunne ka adhikar.</p><div class="tap-hint" style="color:var(--green);background:var(--green-light)">👆 Detail dekhein</div></div>
+      <div class="rcard scroll-anim" onclick="openModal(3)"><div class="rnum">4</div><span class="rcard-ico">🗣️</span><h3>Right to be Heard</h3><p>Aapki baat sunni jaaye — Forum tak.</p><div class="tap-hint" style="color:var(--purple);background:var(--purple-light)">👆 Detail dekhein</div></div>
+      <div class="rcard scroll-anim" onclick="openModal(4)"><div class="rnum">5</div><span class="rcard-ico">⚖️</span><h3>Right to Seek Redressal</h3><p>Cheated hone par compensation ka adhikar.</p><div class="tap-hint" style="color:var(--teal);background:var(--teal-light)">👆 Detail dekhein</div></div>
+      <div class="rcard scroll-anim" onclick="openModal(5)"><div class="rnum">6</div><span class="rcard-ico">📚</span><h3>Right to Consumer Education</h3><p>Apne rights jaanne ka pura haq.</p><div class="tap-hint" style="color:#7B5E00;background:var(--gold-light)">👆 Detail dekhein</div></div>
     </div>
   </div>
 </div>
 
-<!-- ===== MODAL ===== -->
 <div class="modal-overlay" id="modal" onclick="closeOnBg(event)">
-  <div class="modal-box" id="modal-box">
+  <div class="modal-box">
     <div class="modal-handle"></div>
     <div class="modal-top">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -468,11 +320,10 @@ footer a:hover{text-decoration:underline}
   </div>
 </div>
 
-<!-- ===== RESP ===== -->
 <section class="sec" id="resp">
   <div class="lbl scroll-anim">✅ Section 3 — Jimmedari</div>
   <h2 class="h2 scroll-anim">Consumer ki Zimmedariyan</h2>
-  <p class="desc scroll-anim">Rights ke saath responsibilities bhi aati hain. Ek smart consumer hamesha ye karta hai:</p>
+  <p class="desc scroll-anim">Rights ke saath responsibilities bhi aati hain:</p>
   <div class="resp-list">
     <div class="ri scroll-anim"><div class="ri-icon">🧾</div><div><h3>Bill Zaroor Lo</h3><p>Har kharidari pe receipt ya invoice lo — yahi aapka proof hai.</p></div></div>
     <div class="ri scroll-anim"><div class="ri-icon">🔍</div><div><h3>Product Check Karo</h3><p>Kharidne se pehle ISI mark, ya certification check karo.</p></div></div>
@@ -481,7 +332,6 @@ footer a:hover{text-decoration:underline}
   </div>
 </section>
 
-<!-- ===== LAW ===== -->
 <div class="sec-alt" id="law">
   <div class="sec-inner">
     <div class="lbl scroll-anim">📜 Section 4 — Kanoon</div>
@@ -501,20 +351,19 @@ footer a:hover{text-decoration:underline}
     </div>
     <div class="online-warn scroll-anim">
       <h4>⚠️ Online Fraud Protection</h4>
-      <p>2019 Act mein pehli baar e-commerce ko cover kiya gaya. Agar online fake product mila, delivery nahi aayi, ya payment fraud hua — Consumer Forum mein case file kar sakte hain.</p>
+      <p>2019 Act mein pehli baar e-commerce ko cover kiya gaya. Agar online fake product mila ya payment fraud hua — Consumer Forum mein case file kar sakte hain.</p>
     </div>
   </div>
 </div>
 
-<!-- ===== COMPLAINT ===== -->
 <section class="sec" id="complaint">
   <div class="lbl scroll-anim">📣 Section 5 — Complaint Process</div>
   <h2 class="h2 scroll-anim">Complaint Kaise Karein?</h2>
   <p class="desc scroll-anim">Agar aapke saath kuch galat hua — step by step ye process follow karo:</p>
   <div class="steps">
     <div class="stp scroll-anim"><div class="stp-num">1</div><div class="stp-body"><h3>Evidence Collect Karo</h3><p>Bill, receipt, photos, screenshots, chat history — sab save karo.</p></div></div>
-    <div class="stp scroll-anim"><div class="stp-num">2</div><div class="stp-body"><h3>Company Ko Directly Complain Karo</h3><p>Customer care ko email ya written complaint do. Hamesha written mein karo.</p></div></div>
-    <div class="stp scroll-anim"><div class="stp-num">3</div><div class="stp-body"><h3>National Helpline Pe Call Karo</h3><p>Free helpline pe call karo. Trained advisors aapki madad karenge.</p></div></div>
+    <div class="stp scroll-anim"><div class="stp-num">2</div><div class="stp-body"><h3>Company Ko Directly Complain Karo</h3><p>Customer care ko written complaint do — hamesha email ya written mein.</p></div></div>
+    <div class="stp scroll-anim"><div class="stp-num">3</div><div class="stp-body"><h3>National Helpline Pe Call Karo</h3><p>Free helpline pe call karo. Trained advisors madad karenge.</p></div></div>
     <div class="stp scroll-anim"><div class="stp-num">4</div><div class="stp-body"><h3>Online Portal Pe Register Karo</h3><p>consumerhelpline.gov.in ya edaakhil.nic.in pe online complaint file karo — bilkul free.</p></div></div>
     <div class="stp scroll-anim"><div class="stp-num">5</div><div class="stp-body"><h3>Consumer Forum Mein Jaao</h3><p>District Consumer Forum mein case file karo. 20 lakh tak yahan resolve hota hai.</p></div></div>
   </div>
@@ -524,42 +373,25 @@ footer a:hover{text-decoration:underline}
     <div class="hl-sub">Toll Free · Hindi mein baat kar sakte hain · Weekdays Available</div>
     <div class="hl-btns">
       <a href="tel:18001114000" class="hl-btn primary">📞 Abhi Call Karo</a>
-      <a href="https://consumerhelpline.gov.in" target="_blank" rel="noopener" class="hl-btn">🌐 Helpline Portal</a>
+      <a href="https://consumerhelpline.gov.in" target="_blank" rel="noopener" class="hl-btn">🌐 Portal</a>
       <a href="https://edaakhil.nic.in" target="_blank" rel="noopener" class="hl-btn">⚖️ Case File Karo</a>
     </div>
   </div>
 </section>
 
-<!-- ===== EXAMPLES ===== -->
 <div class="sec-alt" id="examples">
   <div class="sec-inner">
     <div class="lbl scroll-anim">💡 Section 6 — Real Examples</div>
     <h2 class="h2 scroll-anim">Real Zindagi ke Cases</h2>
-    <p class="desc scroll-anim">Yeh situations aapke saath bhi ho sakti hain — jaano kya karna chahiye:</p>
+    <p class="desc scroll-anim">Yeh situations aapke saath bhi ho sakti hain:</p>
     <div class="ex-grid">
-      <div class="excard scroll-anim">
-        <div class="ex-tag t-red">⚠️ Nakli Product</div>
-        <h3>Duplicate Brand ka Shampoo</h3>
-        <p class="story">Rahul ne online ek branded shampoo order kiya ₹450 mein. Mila bilkul alag product. Company ne refund deny kar diya.</p>
-        <div class="ex-tip">✅ Kya kare: Bill + photo save karo. edaakhil.nic.in pe complaint file karo. Refund + compensation milega.</div>
-      </div>
-      <div class="excard scroll-anim">
-        <div class="ex-tag t-blue">💻 Online Scam</div>
-        <h3>Fake Delivery Call Fraud</h3>
-        <p class="story">Priya ko call aaya "Aapka parcel customs mein ruka hai, ₹800 transfer karo." Usne paise bheje — total fraud tha.</p>
-        <div class="ex-tip">✅ Kya kare: Kabhi call pe paise mat bhejo. Cyber Crime helpline 1930 pe call karo.</div>
-      </div>
-      <div class="excard scroll-anim">
-        <div class="ex-tag t-gold">💰 Overpricing</div>
-        <h3>MRP Se Zyada Price Charge</h3>
-        <p class="story">Sonu ne railway station pe water bottle kharidi ₹50 mein, jabki MRP ₹20 thi.</p>
-        <div class="ex-tip">✅ Kya kare: MRP se zyada price lena illegal hai. Photo lo, 1800-11-4000 pe call karo.</div>
-      </div>
+      <div class="excard scroll-anim"><div class="ex-tag t-red">⚠️ Nakli Product</div><h3>Duplicate Brand ka Shampoo</h3><p class="story">Rahul ne online branded shampoo order kiya ₹450 mein. Mila bilkul alag product. Company ne refund deny kar diya.</p><div class="ex-tip">✅ Bill + photo save karo. edaakhil.nic.in pe complaint file karo. Refund + compensation milega.</div></div>
+      <div class="excard scroll-anim"><div class="ex-tag t-blue">💻 Online Scam</div><h3>Fake Delivery Call Fraud</h3><p class="story">Priya ko call aaya "Parcel customs mein ruka, ₹800 transfer karo." Usne paise bheje — total fraud tha.</p><div class="ex-tip">✅ Kabhi call pe paise mat bhejo. Cyber Crime helpline 1930 pe call karo.</div></div>
+      <div class="excard scroll-anim"><div class="ex-tag t-gold">💰 Overpricing</div><h3>MRP Se Zyada Price Charge</h3><p class="story">Sonu ne railway station pe water bottle kharidi ₹50 mein, jabki MRP ₹20 thi.</p><div class="ex-tip">✅ MRP se zyada price lena illegal hai. Photo lo, 1800-11-4000 pe call karo.</div></div>
     </div>
   </div>
 </div>
 
-<!-- ===== QUIZ ===== -->
 <section id="quiz">
   <div class="quiz-inner">
     <div class="quiz-header">
@@ -569,10 +401,7 @@ footer a:hover{text-decoration:underline}
     </div>
     <div id="quiz-container">
       <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qpfill" style="width:0%"></div></div>
-      <div class="quiz-info">
-        <span id="q-counter">Question 1 / 15</span>
-        <span class="quiz-score-display">Score: <span id="q-score">0</span> / <span id="q-total">0</span></span>
-      </div>
+      <div class="quiz-info"><span id="q-counter">Question 1 / 15</span><span class="quiz-score-display">Score: <span id="q-score">0</span> / <span id="q-total">0</span></span></div>
       <div class="qbox" id="qbox">
         <div class="q-num" id="qnum"></div>
         <div class="q-text" id="qtext"></div>
@@ -588,77 +417,45 @@ footer a:hover{text-decoration:underline}
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="fl">Consumer <span>Rights</span> India</div>
   <div class="f-div"></div>
   <p>
     <strong style="color:var(--saffron2)">🇮🇳 Jaago Grahak Jaago</strong><br>
     Sarkar aur kanoon hamesha aapke saath hai. Apne rights jaano, apni awaaz uthao.<br><br>
-    📜 Consumer Protection Act 2019 &nbsp;|&nbsp;
-    <a href="tel:18001114000">📞 1800-11-4000</a><br>
-    <a href="https://consumerhelpline.gov.in" target="_blank">🌐 consumerhelpline.gov.in</a> &nbsp;|&nbsp;
-    <a href="https://edaakhil.nic.in" target="_blank">⚖️ edaakhil.nic.in</a>
+    📜 Consumer Protection Act 2019 &nbsp;|&nbsp; <a href="tel:18001114000">📞 1800-11-4000</a><br>
+    <a href="https://consumerhelpline.gov.in" target="_blank">🌐 consumerhelpline.gov.in</a> &nbsp;|&nbsp; <a href="https://edaakhil.nic.in" target="_blank">⚖️ edaakhil.nic.in</a>
   </p>
   <div class="f-div"></div>
-  <p style="font-size:0.72rem;opacity:0.4">Admin: Footer pe 5 baar click karo → Analytics Dashboard</p>
+  <!-- Admin link - barely visible, only you know about it -->
+  <a href="admin.html" class="admin-link">admin</a>
 </footer>
 
-<!-- ===== ADMIN BUTTON ===== -->
-<button id="admin-btn" onclick="openAnalytics()" title="Analytics Dashboard">
-  <span class="dot"></span> 📊 Stats
-</button>
-
-<!-- ===== ANALYTICS DASHBOARD ===== -->
-<div class="analytics-overlay" id="analyticsOverlay" onclick="closeAnalyticsOnBg(event)">
-  <div class="analytics-box" id="analyticsBox">
-    <div class="a-header">
-      <div class="a-title">📊 Website <span>Analytics</span></div>
-      <button class="a-close" onclick="closeAnalytics()">✕</button>
-    </div>
-    <div class="a-body" id="analyticsBody">
-      <div class="no-data">Loading data...</div>
-    </div>
-  </div>
-</div>
-
 <script>
-/* ===== PARTICLES ===== */
+/* ── PARTICLES ── */
 (function(){
   const c=document.getElementById('particles');
   for(let i=0;i<18;i++){
-    const p=document.createElement('div');
-    p.className='particle';
+    const p=document.createElement('div');p.className='particle';
     p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${5+Math.random()*8}s;--delay:${Math.random()*5}s;opacity:${0.2+Math.random()*0.4}`;
     c.appendChild(p);
   }
 })();
 
-/* ===== SCROLL ANIM ===== */
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
-},{threshold:0.15});
+/* ── SCROLL ANIMATIONS ── */
+const observer=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}});},{threshold:0.15});
 document.querySelectorAll('.scroll-anim').forEach(el=>observer.observe(el));
-
-const navObs=new IntersectionObserver(en=>{
-  en.forEach(e=>{
-    if(e.isIntersecting){
-      document.querySelectorAll('.nlink').forEach(l=>l.classList.remove('active'));
-      const a=document.querySelector(`.nlink[href="#${e.target.id}"]`);
-      if(a)a.classList.add('active');
-    }
-  });
-},{threshold:0.35});
+const navObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.nlink').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nlink[href="#${x.target.id}"]`);if(a)a.classList.add('active');}});},{threshold:0.35});
 document.querySelectorAll('[id]').forEach(s=>navObs.observe(s));
 
-/* ===== RIGHTS MODAL DATA ===== */
+/* ── RIGHTS DATA ── */
 const rights=[
-  {ico:"🛡️",title:"Right to Safety",badge:"Right #1",bc:"#C62828",bb:"#FFEBEE",kya:"Kisi bhi aisi cheez se protection paane ka adhikar jo aapki jaan ya sehat ko nuksaan pahuncha sakti ho.",kyun:"Companies kabhi kabhi cheap materials use karti hain ya safety tests skip karti hain.",ex:"Ek electric kettle baar baar short circuit kar raha tha. Manufacturer ne recall kiya — kyunki yeh Right to Safety ka violation tha.",tip:"ISI mark, BIS certification, ya FSSAI label check karo. Agar product unsafe lage — immediately use band karo aur complain file karo.",tico:"🛡️",tc:"#2E7D32",tb:"#E8F5E9"},
-  {ico:"📋",title:"Right to Information",badge:"Right #2",bc:"#1565C0",bb:"#E3F2FD",kya:"Product ya service ke baare mein sahi aur poori jaankari paane ka adhikar — price, quality, ingredients sab kuch clearly bataya jaana chahiye.",kyun:"Companies misleading advertisements deti hain ya hidden charges lagate hain.",ex:"Ek juice company label pe '100% Natural' likha tha lekin artificial flavors the. Consumer Forum ne fine lagaya.",tip:"Hamesha label padho. Agar information nahi di gayi ya misleading lage — company se demand karo.",tico:"📋",tc:"#1565C0",tb:"#E3F2FD"},
-  {ico:"🤔",title:"Right to Choose",badge:"Right #3",bc:"#2E7D32",bb:"#E8F5E9",kya:"Apni marzi se product ya service chunne ka adhikar. Koi bhi seller aapko specific product kharidne ke liye force nahi kar sakta.",kyun:"Monopoly ya tie-in selling se consumers ko nuksaan hota tha.",ex:"Ek mobile shop ne kaha 'Hum phone tab denge jab aap hamare hi cover bhi kharido.' Yeh violation hai.",tip:"Agar koi aapko forced bundling kar raha ho — refuse karo aur 1800-11-4000 pe report karo.",tico:"🤔",tc:"#2E7D32",tb:"#E8F5E9"},
-  {ico:"🗣️",title:"Right to be Heard",badge:"Right #4",bc:"#6A1B9A",bb:"#F3E5F5",kya:"Aapki baat, complaint aur feedback sunni jaaye. Companies ko consumer ki voice par dhyan dena hoga.",kyun:"Pehle consumer ki baat ignore ho jaati thi. Ab har company ko complaint redressal mechanism rakhna mandatory hai.",ex:"Anjali ne airline se refund maanga jo nahi mila. Consumer Forum ne full refund + compensation dene ka order diya.",tip:"Agar company aapki complaint ignore kare — Consumer Forum mein jaao.",tico:"🗣️",tc:"#6A1B9A",tb:"#F3E5F5"},
-  {ico:"⚖️",title:"Right to Seek Redressal",badge:"Right #5",bc:"#00897B",bb:"#E0F2F1",kya:"Agar cheating, unfair trade practice ya defective product ka issue hua — compensation, replacement ya refund maangne ka pura adhikar hai.",kyun:"Bina iss right ke consumers ko loss hone ke baad bhi kuch nahi milta.",ex:"Vikram ne washing machine kharidi jo pehle hafte kharab ho gayi. Consumer Forum ne replacement + ₹5000 compensation diya.",tip:"Complaint 2 saal ke andar file karni hoti hai. District Forum mein filing fee sirf ₹50-200 hoti hai.",tico:"⚖️",tc:"#00897B",tb:"#E0F2F1"},
-  {ico:"📚",title:"Right to Consumer Education",badge:"Right #6",bc:"#F9A825",bb:"#FFFDE7",kya:"Har consumer ko unke rights ke baare mein jaankari paane ka pura haq hai.",kyun:"Agar aapko pata hi nahi hoga ki aapke rights kya hain, toh aap unhe use nahi kar paoge.",ex:"Schools mein consumer rights syllabus add kiya gaya. Sarkar TV, radio aur social media pe campaigns chalati hai.",tip:"consumerhelpline.gov.in pe training resources hain. Apne family aur friends ko bhi share karo.",tico:"📚",tc:"#7B5E00",tb:"#FFFDE7"}
+  {ico:"🛡️",title:"Right to Safety",badge:"Right #1",bc:"#C62828",bb:"#FFEBEE",kya:"Kisi bhi aisi cheez se protection paane ka adhikar jo aapki jaan ya sehat ko nuksaan pahuncha sakti ho.",kyun:"Companies kabhi kabhi cheap materials use karti hain ya safety tests skip karti hain. Iss right ki wajah se unsafe products market mein nahi aa sakti.",ex:"Ek electric kettle baar baar short circuit kar raha tha. Manufacturer ne recall kiya — kyunki yeh Right to Safety ka violation tha.",tip:"ISI mark, BIS certification, ya FSSAI label check karo. Agar product unsafe lage — immediately use band karo aur complain file karo.",tc:"#2E7D32",tb:"#E8F5E9"},
+  {ico:"📋",title:"Right to Information",badge:"Right #2",bc:"#1565C0",bb:"#E3F2FD",kya:"Product ya service ke baare mein sahi aur poori jaankari paane ka adhikar — price, quality, ingredients sab clearly bataya jaana chahiye.",kyun:"Companies misleading advertisements deti hain ya hidden charges lagate hain. Yeh right ensure karta hai ki aap educated decision le sakein.",ex:"Ek juice company label pe '100% Natural' likha tha lekin artificial flavors the. Consumer Forum ne company ko fine lagaya.",tip:"Hamesha label padho. Agar information misleading lage — company se demand karo.",tc:"#1565C0",tb:"#E3F2FD"},
+  {ico:"🤔",title:"Right to Choose",badge:"Right #3",bc:"#2E7D32",bb:"#E8F5E9",kya:"Apni marzi se product ya service chunne ka adhikar. Koi bhi seller aapko specific product kharidne ke liye force nahi kar sakta.",kyun:"Monopoly ya tie-in selling se consumers ko nuksaan hota tha. Yeh right market mein competition ensure karta hai.",ex:"Ek mobile shop ne kaha 'Hum phone tab denge jab aap hamare hi cover bhi kharido.' Yeh violation hai.",tip:"Agar koi forced bundling kar raha ho — refuse karo aur 1800-11-4000 pe report karo.",tc:"#2E7D32",tb:"#E8F5E9"},
+  {ico:"🗣️",title:"Right to be Heard",badge:"Right #4",bc:"#6A1B9A",bb:"#F3E5F5",kya:"Aapki baat, complaint aur feedback sunni jaaye. Companies ko consumer ki voice par dhyan dena hoga.",kyun:"Pehle consumer ki baat ignore ho jaati thi. Ab har company ko complaint redressal mechanism rakhna mandatory hai.",ex:"Anjali ne airline se refund maanga jo nahi mila. Consumer Forum ne full refund + compensation dene ka order diya.",tip:"Agar company complaint ignore kare — Consumer Forum mein jaao.",tc:"#6A1B9A",tb:"#F3E5F5"},
+  {ico:"⚖️",title:"Right to Seek Redressal",badge:"Right #5",bc:"#00897B",bb:"#E0F2F1",kya:"Agar cheating ya defective product ka issue hua — compensation, replacement ya refund maangne ka pura adhikar hai.",kyun:"Bina iss right ke consumers ko loss hone ke baad bhi kuch nahi milta.",ex:"Vikram ne washing machine kharidi jo pehle hafte kharab ho gayi. Consumer Forum ne replacement + ₹5000 compensation diya.",tip:"Complaint 2 saal ke andar file karni hoti hai. District Forum mein filing fee sirf ₹50-200 hoti hai.",tc:"#00897B",tb:"#E0F2F1"},
+  {ico:"📚",title:"Right to Consumer Education",badge:"Right #6",bc:"#F9A825",bb:"#FFFDE7",kya:"Har consumer ko unke rights ke baare mein jaankari paane ka pura haq hai.",kyun:"Agar aapko pata hi nahi hoga ki aapke rights kya hain, toh aap unhe use nahi kar paoge.",ex:"Schools mein consumer rights syllabus add kiya gaya. Sarkar campaigns chalati hai.",tip:"consumerhelpline.gov.in pe training resources hain. Apne family ko bhi share karo.",tc:"#7B5E00",tb:"#FFFDE7"}
 ];
 
 function openModal(i){
@@ -666,38 +463,42 @@ function openModal(i){
   document.getElementById('m-ico').textContent=r.ico;
   const b=document.getElementById('m-badge');b.textContent=r.badge;b.style.cssText=`color:${r.bc};background:${r.bb}`;
   document.getElementById('m-title').textContent=r.title;
-  document.getElementById('m-body').innerHTML=`<h4>📌 Yeh Right Kya Hai?</h4><p>${r.kya}</p><h4>❓ Yeh Kyun Zaroori Hai?</h4><p>${r.kyun}</p><div class="m-example"><div class="m-ex-lbl" style="color:${r.bc}">📖 Real Life Example</div><p>${r.ex}</p></div><div class="m-tip" style="background:${r.tb}"><div class="m-tip-ico">${r.tico}</div><p style="color:${r.tc}">${r.tip}</p></div>`;
+  document.getElementById('m-body').innerHTML=`<h4>📌 Yeh Right Kya Hai?</h4><p>${r.kya}</p><h4>❓ Yeh Kyun Zaroori Hai?</h4><p>${r.kyun}</p><div class="m-example"><div class="m-ex-lbl" style="color:${r.bc}">📖 Real Life Example</div><p>${r.ex}</p></div><div class="m-tip" style="background:${r.tb}"><p style="color:${r.tc}">💡 ${r.tip}</p></div>`;
   document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';
 }
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 function closeOnBg(e){if(e.target===document.getElementById('modal'))closeModal();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeAnalytics();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-/* ===== QUIZ DATA ===== */
-const ALL_QUESTIONS=[
-  {q:"Consumer Protection Act India mein kaun se saal mein pass hua?",opts:["1986","2005","2019","2022"],ans:2,exp:"Consumer Protection Act 2019 mein pass hua, jo pehle ke 1986 Act ki jagah aaya aur e-commerce ko bhi cover karta hai."},
-  {q:"Consumer Rights India mein kitne basic rights hain?",opts:["4","5","6","8"],ans:2,exp:"India mein 6 basic consumer rights hain: Safety, Information, Choice, Heard, Redressal, aur Consumer Education."},
+/* ── QUIZ DATA ── */
+const ALL_Q=[
+  {q:"Consumer Protection Act India mein kaun se saal mein pass hua?",opts:["1986","2005","2019","2022"],ans:2,exp:"Consumer Protection Act 2019 mein pass hua, e-commerce ko bhi cover karta hai."},
+  {q:"Consumer Rights India mein kitne basic rights hain?",opts:["4","5","6","8"],ans:2,exp:"6 basic consumer rights: Safety, Information, Choice, Heard, Redressal, Education."},
   {q:"District Consumer Forum kitne rupaye tak ke cases handle karta hai?",opts:["5 Lakh","10 Lakh","20 Lakh","50 Lakh"],ans:2,exp:"District Consumer Forum 20 lakh rupaye tak ke cases handle karta hai."},
-  {q:"National Consumer Helpline ka toll-free number kya hai?",opts:["1800-11-4000","1800-11-5000","1930","1800-180-1551"],ans:0,exp:"National Consumer Helpline ka number 1800-11-4000 hai jo bilkul free hai."},
-  {q:"Online complaint file karne ke liye kaun sa portal use karna chahiye?",opts:["edaakhil.nic.in","complaint.gov.in","consumer.in","nclt.gov.in"],ans:0,exp:"edaakhil.nic.in official portal hai."},
+  {q:"National Consumer Helpline ka toll-free number kya hai?",opts:["1800-11-4000","1800-11-5000","1930","1800-180-1551"],ans:0,exp:"National Consumer Helpline 1800-11-4000 bilkul free hai."},
+  {q:"Online complaint file karne ke liye kaun sa portal use karein?",opts:["edaakhil.nic.in","complaint.gov.in","consumer.in","nclt.gov.in"],ans:0,exp:"edaakhil.nic.in official Consumer Court portal hai."},
   {q:"MRP se zyada price charge karna kya hai?",opts:["Legal hai","Illegal hai","Only petrol pe allowed","Hotel mein legal hai"],ans:1,exp:"MRP se zyada price charge karna completely illegal hai."},
   {q:"Complaint kitne saal ke andar file karni chahiye?",opts:["6 mahine","1 saal","2 saal","5 saal"],ans:2,exp:"Consumer Protection Act ke under complaint 2 saal ke andar file karni hoti hai."},
-  {q:"Kaunsa right ensure karta hai ki aap apni marzi se product chun sakein?",opts:["Right to Safety","Right to Information","Right to Choose","Right to be Heard"],ans:2,exp:"Right to Choose ensure karta hai ki koi bhi seller aapko force nahi kar sakta."},
+  {q:"Kaunsa right ensure karta hai ki aap apni marzi se product chun sakein?",opts:["Right to Safety","Right to Information","Right to Choose","Right to be Heard"],ans:2,exp:"Right to Choose — koi bhi seller aapko force nahi kar sakta."},
   {q:"ISI mark kis authority ka certification hai?",opts:["FSSAI","BIS","RBI","SEBI"],ans:1,exp:"ISI mark Bureau of Indian Standards (BIS) ka certification hai."},
-  {q:"Agar online product fake aaya, toh consumer kahan complain kar sakta hai?",opts:["Police station only","Consumer Forum ya edaakhil.nic.in","Bank mein","Dono Consumer Forum aur cybercrime.gov.in"],ans:3,exp:"Online fake product ke liye Consumer Forum aur cybercrime.gov.in dono pe complain kar sakte hain."},
-  {q:"Right to Safety ka matlab kya hai?",opts:["Free safety gear milega","Harmful products se protection","Army protection milegi","Home insurance milega"],ans:1,exp:"Right to Safety means harmful product ya service se protection milegi."},
-  {q:"Consumer Protection Act 2019 mein kya naya add kiya gaya?",opts:["Only physical shops","E-commerce aur online shopping","Only food products","Only medicines"],ans:1,exp:"2019 mein pehli baar e-commerce aur online shopping ko cover kiya gaya."},
-  {q:"Forced bundling — jaise phone ke saath compulsory accessories — kaun se right ka violation hai?",opts:["Right to Safety","Right to be Heard","Right to Choose","Right to Education"],ans:2,exp:"Forced bundling Right to Choose ka violation hai."},
+  {q:"Online fake product aaya, toh consumer kahan complain kar sakta hai?",opts:["Police station only","Consumer Forum ya edaakhil.nic.in","Bank mein","Dono Consumer Forum aur cybercrime.gov.in"],ans:3,exp:"Online fraud ke liye Consumer Forum aur cybercrime.gov.in dono pe complain karein."},
+  {q:"Right to Safety ka matlab kya hai?",opts:["Free safety gear milega","Harmful products se protection","Army protection milegi","Home insurance milega"],ans:1,exp:"Right to Safety — harmful product ya service se protection."},
+  {q:"Consumer Protection Act 2019 mein kya naya add kiya gaya?",opts:["Only physical shops","E-commerce aur online shopping","Only food products","Only medicines"],ans:1,exp:"2019 mein pehli baar e-commerce aur online shopping cover kiya gaya."},
+  {q:"Forced bundling kaun se right ka violation hai?",opts:["Right to Safety","Right to be Heard","Right to Choose","Right to Education"],ans:2,exp:"Forced bundling Right to Choose ka violation hai."},
   {q:"State Consumer Commission kitne rupaye tak ke cases handle karta hai?",opts:["20L se 50L","20L se 1Cr","50L se 2Cr","1Cr se 5Cr"],ans:1,exp:"State Consumer Commission 20 lakh se zyada aur 1 crore tak ke cases handle karta hai."},
   {q:"Cyber fraud hua toh kaunse helpline pe call karein?",opts:["100","1800-11-4000","1930","112"],ans:2,exp:"Cyber fraud ke liye 1930 (Cyber Crime Helpline) pe call karein."}
 ];
 
 let questions=[],current=0,score=0,answered=[],userAnswers=[];
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
 
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function gradeLabel(s){
+  const p=Math.round((s/15)*100);
+  if(p>=90)return'🏆 Expert';if(p>=70)return'🥇 Samajhdaar';if(p>=50)return'📚 Seekhne wale';return'⚠️ Beginner';
+}
 
 function startQuiz(){
-  questions=shuffle(ALL_QUESTIONS);current=0;score=0;answered=new Array(15).fill(false);userAnswers=new Array(15).fill(-1);
+  questions=shuffle(ALL_Q);current=0;score=0;answered=new Array(15).fill(false);userAnswers=new Array(15).fill(-1);
   document.getElementById('quiz-result').style.display='none';
   document.getElementById('quiz-container').style.display='block';
   renderQ();
@@ -705,8 +506,7 @@ function startQuiz(){
 
 function renderQ(){
   const q=questions[current];
-  const pct=((current)/15)*100;
-  document.getElementById('qpfill').style.width=pct+'%';
+  document.getElementById('qpfill').style.width=((current/15)*100)+'%';
   document.getElementById('q-counter').textContent=`Question ${current+1} / 15`;
   document.getElementById('q-score').textContent=score;
   document.getElementById('q-total').textContent=current;
@@ -714,47 +514,35 @@ function renderQ(){
   document.getElementById('qtext').textContent=q.q;
   document.getElementById('qfeedback').className='q-feedback';
   const opts=document.getElementById('qopts');opts.innerHTML='';
-  const letters=['A','B','C','D'];
-  q.opts.forEach((opt,i)=>{
-    const btn=document.createElement('button');
-    btn.className='q-opt';
-    btn.innerHTML=`<span class="q-opt-letter">${letters[i]}</span>${opt}`;
+  ['A','B','C','D'].forEach((l,i)=>{
+    const btn=document.createElement('button');btn.className='q-opt';
+    btn.innerHTML=`<span class="q-opt-letter">${l}</span>${q.opts[i]}`;
     if(answered[current]){btn.disabled=true;if(i===q.ans)btn.classList.add('correct');else if(i===userAnswers[current])btn.classList.add('wrong');}
-    else{btn.onclick=()=>selectAnswer(i);}
+    else btn.onclick=()=>selectAnswer(i);
     opts.appendChild(btn);
   });
   if(answered[current])showFeedback(userAnswers[current]===q.ans,q.exp);
   document.getElementById('prevBtn').disabled=current===0;
   document.getElementById('nextBtn').disabled=!answered[current];
-  const qbox=document.getElementById('qbox');qbox.style.animation='none';qbox.offsetHeight;qbox.style.animation='fadeInUp 0.4s ease';
+  const qb=document.getElementById('qbox');qb.style.animation='none';qb.offsetHeight;qb.style.animation='fadeInUp 0.4s ease';
 }
 
 function selectAnswer(i){
   if(answered[current])return;
   const q=questions[current];answered[current]=true;userAnswers[current]=i;
-  const correct=i===q.ans;if(correct)score++;
+  if(i===q.ans)score++;
   document.getElementById('q-score').textContent=score;document.getElementById('q-total').textContent=current+1;
-  const btns=document.querySelectorAll('.q-opt');
-  btns.forEach((btn,idx)=>{btn.disabled=true;if(idx===q.ans)btn.classList.add('correct');else if(idx===i)btn.classList.add('wrong');});
-  showFeedback(correct,q.exp);document.getElementById('nextBtn').disabled=false;
+  document.querySelectorAll('.q-opt').forEach((b,idx)=>{b.disabled=true;if(idx===q.ans)b.classList.add('correct');else if(idx===i)b.classList.add('wrong');});
+  showFeedback(i===q.ans,q.exp);document.getElementById('nextBtn').disabled=false;
 }
 
-function showFeedback(correct,exp){
+function showFeedback(ok,exp){
   const fb=document.getElementById('qfeedback');
-  fb.className='q-feedback show '+(correct?'correct-fb':'wrong-fb');
-  fb.innerHTML=`${correct?'🎉 Sahi jawab!':'❌ Galat jawab!'} — ${exp}`;
+  fb.className='q-feedback show '+(ok?'correct-fb':'wrong-fb');
+  fb.innerHTML=`${ok?'🎉 Sahi jawab!':'❌ Galat jawab!'} — ${exp}`;
 }
-
-function nextQ(){if(current<14){current++;renderQ();}else{showResult();}}
+function nextQ(){if(current<14){current++;renderQ();}else showResult();}
 function prevQ(){if(current>0){current--;renderQ();}}
-
-function getGradeText(score){
-  const pct=Math.round((score/15)*100);
-  if(pct>=90)return'🏆 Expert';
-  if(pct>=70)return'🥇 Samajhdaar';
-  if(pct>=50)return'📚 Seekhne wale';
-  return'⚠️ Beginner';
-}
 
 function showResult(){
   document.getElementById('quiz-container').style.display='none';
@@ -763,22 +551,22 @@ function showResult(){
   if(pct>=90){grade="🏆 Expert Consumer!";msg="Waah! Aap ek champion consumer hain!";color="#F9A825";}
   else if(pct>=70){grade="🥇 Samajhdaar Consumer!";msg="Bahut accha! Thoda aur sikho.";color="#4CAF50";}
   else if(pct>=50){grade="📚 Seekhne wale Consumer!";msg="Is page ko dobara padho aur quiz phir do.";color="#2196F3";}
-  else{grade="⚠️ Jagrookta Zaroori!";msg="Consumer rights jaanna aapki protection ke liye zaroori hai.";color="#EF5350";}
-  
-  /* ===== SAVE QUIZ RESULT TO ANALYTICS ===== */
-  saveQuizResult(score, getGradeText(score));
+  else{grade="⚠️ Jagrookta Zaroori!";msg="Consumer rights jaanna zaroori hai — dobara padho!";color="#EF5350";}
 
-  const radius=54,circumference=2*Math.PI*radius,dashOffset=circumference*(1-score/15);
-  const breakdown=questions.map((q,i)=>`<div class="rb-item"><div class="rb-q">${i+1}. ${q.q.substring(0,50)}...</div><div class="rb-badge ${userAnswers[i]===q.ans?'c':'w'}">${userAnswers[i]===q.ans?'✓ Sahi':'✗ Galat'}</div></div>`).join('');
-  const colors=['#FF6B00','#FFB347','#4CAF50','#2196F3','#F9A825','#E91E63','#9C27B0'];
-  const confs=Array.from({length:20},(_,i)=>`<div class="conf-item" style="left:${5+i*4.5}%;background:${colors[i%7]};transform:rotate(${Math.random()*360}deg);--cd:${Math.random()*0.8}s"></div>`).join('');
+  /* ── SAVE TO localStorage ── */
+  saveAnalytics(score, gradeLabel(score));
+
+  const r=54,c2=2*Math.PI*r;
+  const breakdown=questions.map((q,i)=>`<div class="rb-item"><div class="rb-q">${i+1}. ${q.q.substring(0,48)}...</div><div class="rb-badge ${userAnswers[i]===q.ans?'c':'w'}">${userAnswers[i]===q.ans?'✓ Sahi':'✗ Galat'}</div></div>`).join('');
+  const cols=['#FF6B00','#FFB347','#4CAF50','#2196F3','#F9A825','#E91E63','#9C27B0'];
+  const confs=Array.from({length:20},(_,i)=>`<div class="conf-item" style="left:${5+i*4.5}%;background:${cols[i%7]};--cd:${Math.random()*0.8}s"></div>`).join('');
   document.getElementById('quiz-result').innerHTML=`
     <div class="quiz-result">
       <div class="confetti-wrap">${confs}</div>
       <div class="result-circle">
         <svg width="140" height="140" viewBox="0 0 140 140">
-          <circle cx="70" cy="70" r="${radius}" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
-          <circle cx="70" cy="70" r="${radius}" fill="none" stroke="${color}" stroke-width="8" stroke-dasharray="${circumference}" stroke-dashoffset="${dashOffset}" stroke-linecap="round" style="transition:stroke-dashoffset 1.5s ease"/>
+          <circle cx="70" cy="70" r="${r}" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+          <circle cx="70" cy="70" r="${r}" fill="none" stroke="${color}" stroke-width="8" stroke-dasharray="${c2}" stroke-dashoffset="${c2*(1-score/15)}" stroke-linecap="round" style="transition:stroke-dashoffset 1.5s ease"/>
         </svg>
         <div class="result-score-text"><div class="big">${score}/15</div><div class="small">${pct}%</div></div>
       </div>
@@ -790,149 +578,34 @@ function showResult(){
   document.getElementById('quiz-result').style.display='block';
 }
 
-/* ===== ANALYTICS SYSTEM ===== */
-async function trackVisit(){
+/* ── ANALYTICS: SAVE TO localStorage ── */
+function saveAnalytics(sc, grade){
   try{
-    let count=1;
-    try{const r=await window.storage.get('cr_visitors',true);if(r)count=(parseInt(r.value)||0)+1;}catch(e){}
-    await window.storage.set('cr_visitors',String(count),true);
-    let sessions=[];
-    try{const r=await window.storage.get('cr_sessions',true);if(r)sessions=JSON.parse(r.value);}catch(e){}
-    sessions.push({time:new Date().toISOString(),page:'home'});
-    if(sessions.length>200)sessions=sessions.slice(-200);
-    await window.storage.set('cr_sessions',JSON.stringify(sessions),true);
-  }catch(e){console.log('Analytics unavailable');}
-}
+    /* visitor count */
+    let visits=JSON.parse(localStorage.getItem('cr_visits')||'[]');
+    visits.push({time:new Date().toISOString(),page:'quiz_complete'});
+    if(visits.length>1000)visits=visits.slice(-1000);
+    localStorage.setItem('cr_visits',JSON.stringify(visits));
 
-async function saveQuizResult(sc,grade){
-  try{
-    let results=[];
-    try{const r=await window.storage.get('cr_quiz_results',true);if(r)results=JSON.parse(r.value);}catch(e){}
+    /* quiz result */
+    let results=JSON.parse(localStorage.getItem('cr_quiz_results')||'[]');
     results.push({score:sc,total:15,pct:Math.round((sc/15)*100),grade:grade,time:new Date().toISOString()});
     if(results.length>500)results=results.slice(-500);
-    await window.storage.set('cr_quiz_results',JSON.stringify(results),true);
-  }catch(e){console.log('Could not save quiz result');}
+    localStorage.setItem('cr_quiz_results',JSON.stringify(results));
+  }catch(e){}
 }
 
-async function openAnalytics(){
-  document.getElementById('analyticsOverlay').classList.add('open');
-  document.body.style.overflow='hidden';
-  await loadAnalytics();
-}
-
-function closeAnalytics(){
-  document.getElementById('analyticsOverlay').classList.remove('open');
-  document.body.style.overflow='';
-}
-
-function closeAnalyticsOnBg(e){if(e.target===document.getElementById('analyticsOverlay'))closeAnalytics();}
-
-async function loadAnalytics(){
-  const body=document.getElementById('analyticsBody');
-  body.innerHTML='<div class="no-data">⏳ Data load ho raha hai...</div>';
+/* ── TRACK PAGE VISIT ── */
+(function(){
   try{
-    let visitors=0,sessions=[],quizResults=[];
-    try{const r=await window.storage.get('cr_visitors',true);if(r)visitors=parseInt(r.value)||0;}catch(e){}
-    try{const r=await window.storage.get('cr_sessions',true);if(r)sessions=JSON.parse(r.value);}catch(e){}
-    try{const r=await window.storage.get('cr_quiz_results',true);if(r)quizResults=JSON.parse(r.value);}catch(e){}
+    let visits=JSON.parse(localStorage.getItem('cr_visits')||'[]');
+    visits.push({time:new Date().toISOString(),page:'home'});
+    if(visits.length>1000)visits=visits.slice(-1000);
+    localStorage.setItem('cr_visits',JSON.stringify(visits));
+  }catch(e){}
+})();
 
-    const quizCount=quizResults.length;
-    const avgScore=quizCount>0?(quizResults.reduce((s,r)=>s+r.pct,0)/quizCount).toFixed(1):0;
-
-    /* Grade distribution */
-    const grades={'🏆 Expert':0,'🥇 Samajhdaar':0,'📚 Seekhne wale':0,'⚠️ Beginner':0};
-    quizResults.forEach(r=>{if(grades[r.grade]!==undefined)grades[r.grade]++;else grades['⚠️ Beginner']++;});
-    
-    /* Score distribution buckets 0-3,4-6,7-9,10-12,13-15 */
-    const buckets=[0,0,0,0,0];
-    quizResults.forEach(r=>{
-      const s=r.score;
-      if(s<=3)buckets[0]++;else if(s<=6)buckets[1]++;else if(s<=9)buckets[2]++;else if(s<=12)buckets[3]++;else buckets[4]++;
-    });
-    const maxB=Math.max(...buckets,1);
-
-    /* Recent results */
-    const recent=[...quizResults].reverse().slice(0,8);
-
-    /* Today's visits */
-    const today=new Date().toDateString();
-    const todayVisits=sessions.filter(s=>new Date(s.time).toDateString()===today).length;
-
-    const gradeColors={'🏆 Expert':'#F9A825','🥇 Samajhdaar':'#4CAF50','📚 Seekhne wale':'#2196F3','⚠️ Beginner':'#EF5350'};
-
-    body.innerHTML=`
-      <div class="a-stats-row">
-        <div class="a-stat"><span class="num">${visitors}</span><span class="lbl2">Total Visitors</span></div>
-        <div class="a-stat"><span class="num">${todayVisits}</span><span class="lbl2">Aaj ke Visitors</span></div>
-        <div class="a-stat"><span class="num">${quizCount}</span><span class="lbl2">Quiz Attempts</span></div>
-      </div>
-      <div class="a-stats-row">
-        <div class="a-stat"><span class="num">${avgScore}%</span><span class="lbl2">Avg Quiz Score</span></div>
-        <div class="a-stat"><span class="num">${quizCount>0?quizResults.filter(r=>r.pct>=70).length:0}</span><span class="lbl2">Pass (70%+)</span></div>
-        <div class="a-stat"><span class="num">${visitors>0&&quizCount>0?Math.round((quizCount/visitors)*100):0}%</span><span class="lbl2">Quiz Completion</span></div>
-      </div>
-
-      <div class="a-section">
-        <div class="a-section-title">📊 Score Distribution</div>
-        ${quizCount>0?`
-        <div class="score-dist">
-          ${buckets.map((b,i)=>`<div class="sd-bar" style="height:${Math.max(8,Math.round((b/maxB)*64))}px;background:rgba(255,179,71,${0.2+((b/maxB)*0.6)})" data-count="${b}"></div>`).join('')}
-        </div>
-        <div class="sd-labels">
-          <div class="sd-lbl">0-3</div><div class="sd-lbl">4-6</div><div class="sd-lbl">7-9</div><div class="sd-lbl">10-12</div><div class="sd-lbl">13-15</div>
-        </div>`:'<div class="no-data">Abhi koi quiz attempt nahi hua</div>'}
-      </div>
-
-      <div class="a-section">
-        <div class="a-section-title">🏅 Grade Breakdown</div>
-        <div class="grade-bars">
-          ${Object.entries(grades).map(([g,c])=>`
-          <div class="grade-bar-row">
-            <div class="grade-bar-label">${g}</div>
-            <div class="grade-bar-track"><div class="grade-bar-fill" style="width:${quizCount>0?Math.round((c/quizCount)*100):0}%;background:${gradeColors[g]}"></div></div>
-            <div class="grade-bar-count">${c}</div>
-          </div>`).join('')}
-        </div>
-      </div>
-
-      <div class="a-section">
-        <div class="a-section-title">🕐 Recent Quiz Results (Latest First)</div>
-        <div class="recent-list">
-          ${recent.length>0?recent.map(r=>`
-          <div class="r-item">
-            <div class="r-item-left">
-              <div class="r-score">${r.score}/15 (${r.pct}%)</div>
-              <div class="r-grade">${r.grade||'N/A'}</div>
-            </div>
-            <div class="r-item-right">
-              <div class="r-time">${new Date(r.time).toLocaleDateString('hi-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</div>
-            </div>
-          </div>`).join(''):'<div class="no-data">Koi quiz result nahi mila abhi tak</div>'}
-        </div>
-      </div>
-      <button class="refresh-btn" onclick="loadAnalytics()">🔄 Data Refresh Karo</button>
-    `;
-  }catch(err){
-    body.innerHTML=`<div class="no-data">❌ Data load nahi hua. Storage available nahi hai.<br><small style="opacity:0.5">${err.message}</small></div>`;
-  }
-}
-
-/* ===== FOOTER CLICK TRICK (5 clicks) ===== */
-let footerClicks=0,footerTimer=null;
-document.querySelector('footer').addEventListener('click',()=>{
-  footerClicks++;
-  if(footerTimer)clearTimeout(footerTimer);
-  footerTimer=setTimeout(()=>footerClicks=0,2000);
-  if(footerClicks>=5){footerClicks=0;openAnalytics();}
-});
-
-/* ===== INIT ===== */
 startQuiz();
-if(typeof window.storage!=='undefined'){
-  trackVisit();
-} else {
-  console.log('Storage API not available in this environment');
-}
 </script>
 </body>
 </html>
