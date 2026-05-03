@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consumer Rights India — आपके अधिकार, आपकी शक्ति</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -32,6 +32,7 @@ body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:var(--text);lin
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 @keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(120px) rotate(360deg);opacity:0}}
 
+/* HERO */
 .hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem 5rem;position:relative;overflow:hidden}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
 .hero-orb1{position:absolute;top:-100px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,0.18) 0%,transparent 70%);pointer-events:none;animation:float 8s ease-in-out infinite}
@@ -42,7 +43,7 @@ body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:var(--text);lin
 .fs{background:#FF9933;flex:1}.fw{background:#fff;flex:1}.fg{background:#138808;flex:1}
 .hero-emblem{position:relative;margin:0 auto 1.5rem;width:120px;height:120px;display:flex;align-items:center;justify-content:center;animation:scaleIn 0.8s ease both 0.2s}
 .hero-emblem-ring{position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(255,179,71,0.3);animation:spin-slow 20s linear infinite}
-.hero-emblem-ico{font-size:4rem;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(255,179,71,0.5))}
+.hero-emblem-ico{font-size:4rem;animation:float 5s ease-in-out infinite}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.35);color:var(--saffron2);padding:7px 20px;border-radius:30px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;margin-bottom:1.2rem;animation:fadeInUp 0.6s ease both 0.4s}
 .hero h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:0.6rem;animation:fadeInUp 0.7s ease both 0.5s}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,#FFB347,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -57,12 +58,14 @@ body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:var(--text);lin
 .scroll-hint{display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.25);font-size:0.72rem;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);animation:bob 2.5s ease-in-out infinite}
 .scroll-arr{width:18px;height:18px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg)}
 
+/* NAV */
 nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;border-bottom:2px solid rgba(255,107,0,0.4)}
 .nav-wrap{display:flex;overflow-x:auto;padding:0 0.75rem;scrollbar-width:none}
 .nav-wrap::-webkit-scrollbar{display:none}
 .nlink{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.8rem;font-weight:600;padding:15px 13px;white-space:nowrap;border-bottom:3px solid transparent;transition:all 0.2s;flex-shrink:0}
 .nlink:hover,.nlink.active{color:var(--saffron2);border-bottom-color:var(--saffron)}
 
+/* SECTIONS */
 .sec{padding:4rem 1.5rem;max-width:960px;margin:0 auto}
 .sec-alt{background:var(--white);padding:4rem 1.5rem}
 .sec-inner{max-width:960px;margin:0 auto}
@@ -70,6 +73,7 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .h2{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;color:var(--navy);margin-bottom:0.4rem;line-height:1.2}
 .desc{color:var(--muted);font-size:0.95rem;max-width:600px;margin-bottom:2rem;line-height:1.7}
 
+/* ILLUS */
 .illus-section{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:2.5rem}
 .illus-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.3s,box-shadow 0.3s}
 .illus-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:var(--shadow2)}
@@ -78,6 +82,7 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .illus-text h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
 .illus-text p{font-size:0.82rem;color:var(--muted);line-height:1.5}
 
+/* RIGHTS CARDS */
 .rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .rcard{background:var(--white);border-radius:20px;padding:1.5rem 1.25rem 1.25rem;box-shadow:var(--shadow);cursor:pointer;transition:transform 0.22s,box-shadow 0.22s;position:relative;overflow:hidden}
 .rcard:hover{transform:translateY(-6px);box-shadow:var(--shadow2)}
@@ -91,6 +96,7 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .rcard p{font-size:0.8rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
 .tap-hint{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:10px}
 
+/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(10,20,40,0.75);backdrop-filter:blur(6px);z-index:999;display:flex;align-items:flex-end;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s}
 .modal-overlay.open{opacity:1;visibility:visible}
 .modal-box{background:var(--white);border-radius:28px 28px 0 0;padding:0 0 2rem;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.34,1.2,0.64,1)}
@@ -110,6 +116,7 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .m-tip{border-radius:12px;padding:0.9rem 1.1rem;margin-top:1rem;display:flex;gap:10px;align-items:flex-start}
 .m-tip p{font-size:0.85rem;font-weight:600;margin:0;line-height:1.5}
 
+/* STEPS */
 .steps{display:flex;flex-direction:column;gap:0;position:relative}
 .steps::before{content:'';position:absolute;left:22px;top:44px;bottom:44px;width:2px;background:linear-gradient(to bottom,var(--saffron),var(--teal));border-radius:2px}
 .stp{display:flex;align-items:flex-start;gap:18px;padding-bottom:1.5rem}
@@ -120,6 +127,7 @@ nav{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);position:sticky;to
 .stp-body h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
 .stp-body p{font-size:0.83rem;color:var(--muted);line-height:1.55}
 
+/* HELPLINE */
 .helpline-big{background:linear-gradient(135deg,var(--teal),#00695C);border-radius:24px;padding:2rem 1.5rem;margin-top:1.75rem;text-align:center;position:relative;overflow:hidden}
 .hl-label{font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px}
 a.hl-num{font-size:2.5rem;font-weight:800;color:var(--gold);display:block;text-decoration:none;letter-spacing:0.06em;margin-bottom:4px;transition:transform 0.2s;animation:pulse-glow 3s ease-in-out infinite}
@@ -130,6 +138,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .hl-btn:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px)}
 .hl-btn.primary{background:#fff;color:var(--teal)}
 
+/* EXAMPLES */
 .ex-grid{display:flex;flex-direction:column;gap:18px}
 .excard{background:var(--white);border-radius:18px;padding:1.5rem;box-shadow:var(--shadow);border-left:6px solid;transition:transform 0.2s}
 .excard:hover{transform:translateX(6px)}
@@ -140,6 +149,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .excard .story{font-size:0.88rem;color:var(--muted);margin-bottom:0.9rem;line-height:1.6}
 .ex-tip{background:var(--green-light);border-radius:12px;padding:10px 14px;font-size:0.83rem;color:var(--green);font-weight:600;display:flex;align-items:flex-start;gap:8px}
 
+/* LAW */
 .law-wrap{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,var(--navy3) 100%);border-radius:24px;padding:2.25rem;position:relative;overflow:hidden;margin-top:1rem}
 .law-wrap::after{content:'2019';position:absolute;right:-15px;bottom:-25px;font-size:9rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1}
 .law-btag{background:var(--saffron);color:#fff;font-size:0.72rem;font-weight:800;padding:5px 14px;border-radius:20px;display:inline-block;margin-bottom:1rem}
@@ -151,6 +161,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .online-warn h4{color:var(--red);font-size:1rem;font-weight:700;margin-bottom:8px}
 .online-warn p{font-size:0.85rem;color:#5C3030;line-height:1.65}
 
+/* RESP */
 .resp-list{display:flex;flex-direction:column;gap:14px}
 .ri{background:var(--white);border-radius:16px;padding:1.1rem 1.25rem;box-shadow:var(--shadow);display:flex;align-items:flex-start;gap:16px;transition:transform 0.2s}
 .ri:hover{transform:translateX(4px)}
@@ -158,6 +169,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .ri h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:3px}
 .ri p{font-size:0.83rem;color:var(--muted);line-height:1.5}
 
+/* QUIZ */
 #quiz{background:linear-gradient(135deg,#1a1a3e 0%,#0d1f3c 100%);padding:4rem 1.5rem}
 .quiz-inner{max-width:720px;margin:0 auto}
 .quiz-header{text-align:center;margin-bottom:2rem}
@@ -209,6 +221,7 @@ a.hl-num:hover{transform:scale(1.04)}
 .rb-badge.c{background:rgba(76,175,80,0.2);color:#A5D6A7}
 .rb-badge.w{background:rgba(239,83,80,0.2);color:#FFCDD2}
 
+/* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,0.65);text-align:center;padding:2.5rem 1.5rem}
 footer .fl{font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
 footer .fl span{color:var(--saffron2)}
@@ -216,11 +229,14 @@ footer p{font-size:0.82rem;line-height:1.9}
 footer a{color:var(--saffron2);text-decoration:none;font-weight:600}
 footer a:hover{text-decoration:underline}
 .f-div{height:1px;background:rgba(255,255,255,0.1);margin:1.25rem 0}
-.admin-link{font-size:0.65rem;color:rgba(255,255,255,0.15);text-decoration:none;margin-top:1rem;display:inline-block;transition:color 0.3s}
-.admin-link:hover{color:rgba(255,179,71,0.5)}
 
+/* SCROLL ANIM */
 .scroll-anim{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
 .scroll-anim.visible{opacity:1;transform:translateY(0)}
+
+/* STATUS TOAST */
+#fb-status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;padding:10px 24px;border-radius:30px;font-size:0.8rem;font-weight:700;z-index:999;opacity:0;transition:opacity 0.4s;pointer-events:none}
+#fb-status.show{opacity:1}
 
 @media(max-width:480px){
   .rights-grid,.illus-section{grid-template-columns:1fr}
@@ -232,6 +248,10 @@ footer a:hover{text-decoration:underline}
 </head>
 <body>
 
+<!-- STATUS TOAST -->
+<div id="fb-status">✅ Data saved!</div>
+
+<!-- HERO -->
 <div class="hero" id="home">
   <div class="hero-grid"></div>
   <div class="hero-orb1"></div>
@@ -255,6 +275,7 @@ footer a:hover{text-decoration:underline}
   <div class="scroll-hint"><div class="scroll-arr"></div><span>Scroll karo</span></div>
 </div>
 
+<!-- NAV -->
 <nav>
   <div class="nav-wrap">
     <a href="#intro" class="nlink">📖 Parichay</a>
@@ -267,6 +288,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </nav>
 
+<!-- INTRO -->
 <section class="sec" id="intro">
   <div class="lbl scroll-anim">📖 Section 1 — Parichay</div>
   <h2 class="h2 scroll-anim">Consumer kaun hota hai?</h2>
@@ -286,11 +308,12 @@ footer a:hover{text-decoration:underline}
     </div>
     <div class="illus-card">
       <div class="illus-art" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)">💪</div>
-      <div class="illus-text"><h3>💪 Rights ke Saath</h3><p>Aap complain kar sakte ho, compensation maang sakte ho aur Consumer Forum mein justice pa sakte ho.</p></div>
+      <div class="illus-text"><h3>💪 Rights ke Saath</h3><p>Aap complain kar sakte ho, compensation maang sakte ho aur justice pa sakte ho.</p></div>
     </div>
   </div>
 </section>
 
+<!-- RIGHTS -->
 <div class="sec-alt" id="rights">
   <div class="sec-inner">
     <div class="lbl scroll-anim">⚖️ Section 2 — Mukhya Adhikar</div>
@@ -307,6 +330,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </div>
 
+<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeOnBg(event)">
   <div class="modal-box">
     <div class="modal-handle"></div>
@@ -320,6 +344,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </div>
 
+<!-- RESP -->
 <section class="sec" id="resp">
   <div class="lbl scroll-anim">✅ Section 3 — Jimmedari</div>
   <h2 class="h2 scroll-anim">Consumer ki Zimmedariyan</h2>
@@ -332,6 +357,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </section>
 
+<!-- LAW -->
 <div class="sec-alt" id="law">
   <div class="sec-inner">
     <div class="lbl scroll-anim">📜 Section 4 — Kanoon</div>
@@ -356,6 +382,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </div>
 
+<!-- COMPLAINT -->
 <section class="sec" id="complaint">
   <div class="lbl scroll-anim">📣 Section 5 — Complaint Process</div>
   <h2 class="h2 scroll-anim">Complaint Kaise Karein?</h2>
@@ -379,6 +406,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </section>
 
+<!-- EXAMPLES -->
 <div class="sec-alt" id="examples">
   <div class="sec-inner">
     <div class="lbl scroll-anim">💡 Section 6 — Real Examples</div>
@@ -392,6 +420,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </div>
 
+<!-- QUIZ -->
 <section id="quiz">
   <div class="quiz-inner">
     <div class="quiz-header">
@@ -417,6 +446,7 @@ footer a:hover{text-decoration:underline}
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="fl">Consumer <span>Rights</span> India</div>
   <div class="f-div"></div>
@@ -424,12 +454,76 @@ footer a:hover{text-decoration:underline}
     <strong style="color:var(--saffron2)">🇮🇳 Jaago Grahak Jaago</strong><br>
     Sarkar aur kanoon hamesha aapke saath hai. Apne rights jaano, apni awaaz uthao.<br><br>
     📜 Consumer Protection Act 2019 &nbsp;|&nbsp; <a href="tel:18001114000">📞 1800-11-4000</a><br>
-    <a href="https://consumerhelpline.gov.in" target="_blank">🌐 consumerhelpline.gov.in</a> &nbsp;|&nbsp; <a href="https://edaakhil.nic.in" target="_blank">⚖️ edaakhil.nic.in</a>
+    <a href="https://consumerhelpline.gov.in" target="_blank">🌐 consumerhelpline.gov.in</a> &nbsp;|&nbsp;
+    <a href="https://edaakhil.nic.in" target="_blank">⚖️ edaakhil.nic.in</a>
   </p>
   <div class="f-div"></div>
-  <!-- Admin link - barely visible, only you know about it -->
-  <a href="admin.html" class="admin-link">admin</a>
+  <p style="font-size:0.72rem;opacity:0.35">
+    <a href="admin.html" style="color:rgba(255,179,71,0.3);font-weight:400;font-size:0.65rem">admin panel</a>
+  </p>
 </footer>
+
+<!-- ════════════════════════════════════════════
+     🔥 FIREBASE CONFIG — YAHAN APNI DETAILS PASTE KARO
+     Firebase Console → Project Settings → Your Apps → Config
+     ════════════════════════════════════════════ -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  // ⬇️ APNI FIREBASE CONFIG YAHAN PASTE KARO ⬇️
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBokYzhjcaKf0WMHpPtadpfljuHyk9Nlqk",
+  authDomain: "consumer-rights-india.firebaseapp.com",
+  projectId: "consumer-rights-india",
+  storageBucket: "consumer-rights-india.firebasestorage.app",
+  messagingSenderId: "211902612293",
+  appId: "1:211902612293:web:37e0ef257178464a93742c",
+  measurementId: "G-0008VFCLTG"
+};
+  // ⬆️ CONFIG UPAR TAK ⬆️
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+
+  // Toast helper
+  function showToast(msg, ok=true){
+    const t = document.getElementById('fb-status');
+    t.textContent = msg;
+    t.style.background = ok ? '#00897B' : '#C62828';
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 2500);
+  }
+
+  // Track page visit
+  async function trackVisit(){
+    try{
+      await addDoc(collection(db,'visits'),{
+        page:'home', time: serverTimestamp(),
+        ua: navigator.userAgent.substring(0,80)
+      });
+    }catch(e){ console.warn('Visit track fail:',e.message); }
+  }
+
+  // Save quiz result — called from quiz JS
+  window.saveQuizToFirebase = async function(score, grade){
+    try{
+      await addDoc(collection(db,'quiz_results'),{
+        score, total:15,
+        pct: Math.round((score/15)*100),
+        grade, time: serverTimestamp()
+      });
+      showToast('✅ Result saved!');
+    }catch(e){
+      console.warn('Quiz save fail:',e.message);
+      showToast('⚠️ Save failed', false);
+    }
+  };
+
+  trackVisit();
+</script>
 
 <script>
 /* ── PARTICLES ── */
@@ -448,11 +542,11 @@ document.querySelectorAll('.scroll-anim').forEach(el=>observer.observe(el));
 const navObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.nlink').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nlink[href="#${x.target.id}"]`);if(a)a.classList.add('active');}});},{threshold:0.35});
 document.querySelectorAll('[id]').forEach(s=>navObs.observe(s));
 
-/* ── RIGHTS DATA ── */
+/* ── RIGHTS MODAL DATA ── */
 const rights=[
-  {ico:"🛡️",title:"Right to Safety",badge:"Right #1",bc:"#C62828",bb:"#FFEBEE",kya:"Kisi bhi aisi cheez se protection paane ka adhikar jo aapki jaan ya sehat ko nuksaan pahuncha sakti ho.",kyun:"Companies kabhi kabhi cheap materials use karti hain ya safety tests skip karti hain. Iss right ki wajah se unsafe products market mein nahi aa sakti.",ex:"Ek electric kettle baar baar short circuit kar raha tha. Manufacturer ne recall kiya — kyunki yeh Right to Safety ka violation tha.",tip:"ISI mark, BIS certification, ya FSSAI label check karo. Agar product unsafe lage — immediately use band karo aur complain file karo.",tc:"#2E7D32",tb:"#E8F5E9"},
-  {ico:"📋",title:"Right to Information",badge:"Right #2",bc:"#1565C0",bb:"#E3F2FD",kya:"Product ya service ke baare mein sahi aur poori jaankari paane ka adhikar — price, quality, ingredients sab clearly bataya jaana chahiye.",kyun:"Companies misleading advertisements deti hain ya hidden charges lagate hain. Yeh right ensure karta hai ki aap educated decision le sakein.",ex:"Ek juice company label pe '100% Natural' likha tha lekin artificial flavors the. Consumer Forum ne company ko fine lagaya.",tip:"Hamesha label padho. Agar information misleading lage — company se demand karo.",tc:"#1565C0",tb:"#E3F2FD"},
-  {ico:"🤔",title:"Right to Choose",badge:"Right #3",bc:"#2E7D32",bb:"#E8F5E9",kya:"Apni marzi se product ya service chunne ka adhikar. Koi bhi seller aapko specific product kharidne ke liye force nahi kar sakta.",kyun:"Monopoly ya tie-in selling se consumers ko nuksaan hota tha. Yeh right market mein competition ensure karta hai.",ex:"Ek mobile shop ne kaha 'Hum phone tab denge jab aap hamare hi cover bhi kharido.' Yeh violation hai.",tip:"Agar koi forced bundling kar raha ho — refuse karo aur 1800-11-4000 pe report karo.",tc:"#2E7D32",tb:"#E8F5E9"},
+  {ico:"🛡️",title:"Right to Safety",badge:"Right #1",bc:"#C62828",bb:"#FFEBEE",kya:"Kisi bhi aisi cheez se protection paane ka adhikar jo aapki jaan ya sehat ko nuksaan pahuncha sakti ho.",kyun:"Companies kabhi kabhi cheap materials use karti hain ya safety tests skip karti hain.",ex:"Ek electric kettle baar baar short circuit kar raha tha. Manufacturer ne recall kiya — Right to Safety ka violation tha.",tip:"ISI mark, BIS certification, ya FSSAI label check karo. Agar product unsafe lage — immediately complain file karo.",tc:"#2E7D32",tb:"#E8F5E9"},
+  {ico:"📋",title:"Right to Information",badge:"Right #2",bc:"#1565C0",bb:"#E3F2FD",kya:"Product ya service ke baare mein sahi aur poori jaankari paane ka adhikar — price, quality, ingredients sab clearly bataya jaana chahiye.",kyun:"Companies misleading advertisements deti hain ya hidden charges lagate hain.",ex:"Ek juice company label pe '100% Natural' likha tha lekin artificial flavors the. Consumer Forum ne fine lagaya.",tip:"Hamesha label padho. Agar information misleading lage — company se demand karo.",tc:"#1565C0",tb:"#E3F2FD"},
+  {ico:"🤔",title:"Right to Choose",badge:"Right #3",bc:"#2E7D32",bb:"#E8F5E9",kya:"Apni marzi se product ya service chunne ka adhikar. Koi bhi seller aapko specific product kharidne ke liye force nahi kar sakta.",kyun:"Monopoly ya tie-in selling se consumers ko nuksaan hota tha.",ex:"Ek mobile shop ne kaha 'Hum phone tab denge jab aap hamare hi cover bhi kharido.' Yeh violation hai.",tip:"Agar koi forced bundling kar raha ho — refuse karo aur 1800-11-4000 pe report karo.",tc:"#2E7D32",tb:"#E8F5E9"},
   {ico:"🗣️",title:"Right to be Heard",badge:"Right #4",bc:"#6A1B9A",bb:"#F3E5F5",kya:"Aapki baat, complaint aur feedback sunni jaaye. Companies ko consumer ki voice par dhyan dena hoga.",kyun:"Pehle consumer ki baat ignore ho jaati thi. Ab har company ko complaint redressal mechanism rakhna mandatory hai.",ex:"Anjali ne airline se refund maanga jo nahi mila. Consumer Forum ne full refund + compensation dene ka order diya.",tip:"Agar company complaint ignore kare — Consumer Forum mein jaao.",tc:"#6A1B9A",tb:"#F3E5F5"},
   {ico:"⚖️",title:"Right to Seek Redressal",badge:"Right #5",bc:"#00897B",bb:"#E0F2F1",kya:"Agar cheating ya defective product ka issue hua — compensation, replacement ya refund maangne ka pura adhikar hai.",kyun:"Bina iss right ke consumers ko loss hone ke baad bhi kuch nahi milta.",ex:"Vikram ne washing machine kharidi jo pehle hafte kharab ho gayi. Consumer Forum ne replacement + ₹5000 compensation diya.",tip:"Complaint 2 saal ke andar file karni hoti hai. District Forum mein filing fee sirf ₹50-200 hoti hai.",tc:"#00897B",tb:"#E0F2F1"},
   {ico:"📚",title:"Right to Consumer Education",badge:"Right #6",bc:"#F9A825",bb:"#FFFDE7",kya:"Har consumer ko unke rights ke baare mein jaankari paane ka pura haq hai.",kyun:"Agar aapko pata hi nahi hoga ki aapke rights kya hain, toh aap unhe use nahi kar paoge.",ex:"Schools mein consumer rights syllabus add kiya gaya. Sarkar campaigns chalati hai.",tip:"consumerhelpline.gov.in pe training resources hain. Apne family ko bhi share karo.",tc:"#7B5E00",tb:"#FFFDE7"}
@@ -491,11 +585,7 @@ const ALL_Q=[
 
 let questions=[],current=0,score=0,answered=[],userAnswers=[];
 function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
-
-function gradeLabel(s){
-  const p=Math.round((s/15)*100);
-  if(p>=90)return'🏆 Expert';if(p>=70)return'🥇 Samajhdaar';if(p>=50)return'📚 Seekhne wale';return'⚠️ Beginner';
-}
+function gradeLabel(s){const p=Math.round((s/15)*100);if(p>=90)return'🏆 Expert';if(p>=70)return'🥇 Samajhdaar';if(p>=50)return'📚 Seekhne wale';return'⚠️ Beginner';}
 
 function startQuiz(){
   questions=shuffle(ALL_Q);current=0;score=0;answered=new Array(15).fill(false);userAnswers=new Array(15).fill(-1);
@@ -503,7 +593,6 @@ function startQuiz(){
   document.getElementById('quiz-container').style.display='block';
   renderQ();
 }
-
 function renderQ(){
   const q=questions[current];
   document.getElementById('qpfill').style.width=((current/15)*100)+'%';
@@ -526,7 +615,6 @@ function renderQ(){
   document.getElementById('nextBtn').disabled=!answered[current];
   const qb=document.getElementById('qbox');qb.style.animation='none';qb.offsetHeight;qb.style.animation='fadeInUp 0.4s ease';
 }
-
 function selectAnswer(i){
   if(answered[current])return;
   const q=questions[current];answered[current]=true;userAnswers[current]=i;
@@ -535,7 +623,6 @@ function selectAnswer(i){
   document.querySelectorAll('.q-opt').forEach((b,idx)=>{b.disabled=true;if(idx===q.ans)b.classList.add('correct');else if(idx===i)b.classList.add('wrong');});
   showFeedback(i===q.ans,q.exp);document.getElementById('nextBtn').disabled=false;
 }
-
 function showFeedback(ok,exp){
   const fb=document.getElementById('qfeedback');
   fb.className='q-feedback show '+(ok?'correct-fb':'wrong-fb');
@@ -553,8 +640,9 @@ function showResult(){
   else if(pct>=50){grade="📚 Seekhne wale Consumer!";msg="Is page ko dobara padho aur quiz phir do.";color="#2196F3";}
   else{grade="⚠️ Jagrookta Zaroori!";msg="Consumer rights jaanna zaroori hai — dobara padho!";color="#EF5350";}
 
-  /* ── SAVE TO localStorage ── */
-  saveAnalytics(score, gradeLabel(score));
+  // Firebase mein save karo
+  const gl = gradeLabel(score);
+  if(typeof window.saveQuizToFirebase === 'function') window.saveQuizToFirebase(score, gl);
 
   const r=54,c2=2*Math.PI*r;
   const breakdown=questions.map((q,i)=>`<div class="rb-item"><div class="rb-q">${i+1}. ${q.q.substring(0,48)}...</div><div class="rb-badge ${userAnswers[i]===q.ans?'c':'w'}">${userAnswers[i]===q.ans?'✓ Sahi':'✗ Galat'}</div></div>`).join('');
@@ -577,33 +665,6 @@ function showResult(){
     </div>`;
   document.getElementById('quiz-result').style.display='block';
 }
-
-/* ── ANALYTICS: SAVE TO localStorage ── */
-function saveAnalytics(sc, grade){
-  try{
-    /* visitor count */
-    let visits=JSON.parse(localStorage.getItem('cr_visits')||'[]');
-    visits.push({time:new Date().toISOString(),page:'quiz_complete'});
-    if(visits.length>1000)visits=visits.slice(-1000);
-    localStorage.setItem('cr_visits',JSON.stringify(visits));
-
-    /* quiz result */
-    let results=JSON.parse(localStorage.getItem('cr_quiz_results')||'[]');
-    results.push({score:sc,total:15,pct:Math.round((sc/15)*100),grade:grade,time:new Date().toISOString()});
-    if(results.length>500)results=results.slice(-500);
-    localStorage.setItem('cr_quiz_results',JSON.stringify(results));
-  }catch(e){}
-}
-
-/* ── TRACK PAGE VISIT ── */
-(function(){
-  try{
-    let visits=JSON.parse(localStorage.getItem('cr_visits')||'[]');
-    visits.push({time:new Date().toISOString(),page:'home'});
-    if(visits.length>1000)visits=visits.slice(-1000);
-    localStorage.setItem('cr_visits',JSON.stringify(visits));
-  }catch(e){}
-})();
 
 startQuiz();
 </script>
