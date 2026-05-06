@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,7 +85,7 @@ body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:#fff;min-height
 /* GRADE BARS */
 .grade-bars{display:flex;flex-direction:column;gap:10px}
 .gb-row{display:flex;align-items:center;gap:12px}
-.gb-label{font-size:0.82rem;color:rgba(255,255,255,0.65);font-weight:600;width:130px;flex-shrink:0}
+.gb-label{font-size:0.82rem;color:rgba(255,255,255,0.65);font-weight:600;width:160px;flex-shrink:0}
 .gb-track{flex:1;background:rgba(255,255,255,0.06);border-radius:6px;height:12px;overflow:hidden}
 .gb-fill{height:100%;border-radius:6px;transition:width 1s ease}
 .gb-count{font-size:0.78rem;color:rgba(255,255,255,0.4);width:30px;text-align:right}
@@ -121,7 +121,7 @@ body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:#fff;min-height
 
 @media(max-width:600px){
   .stats-grid{grid-template-columns:1fr 1fr}
-  .gb-label{width:100px;font-size:0.75rem}
+  .gb-label{width:110px;font-size:0.75rem}
   .header-left .logo{font-size:1rem}
 }
 </style>
@@ -146,45 +146,39 @@ body{font-family:'Baloo 2',sans-serif;background:var(--bg);color:#fff;min-height
 
   <!-- Config Notice -->
   <div class="config-notice" id="configNotice">
-    <h4>⚙️ Firebase Config Setup Karo</h4>
+    <h4>⚙️ Firebase Configuration Required</h4>
     <p>
-      Dono files (<code>index.html</code> aur <code>admin.html</code>) mein Firebase config paste karo:<br>
+      Paste your Firebase config in both files (<code>index.html</code> and <code>admin.html</code>):<br>
       <strong>Firebase Console → Project Settings → Your Apps → Config</strong><br><br>
-      Firestore mein 2 collections chahiye: <code>visits</code> aur <code>quiz_results</code><br>
-      Firestore Rules mein <strong>read/write: true</strong> set karo (testing ke liye)
+      You need 2 collections in Firestore: <code>visits</code> and <code>quiz_results</code><br>
+      Set <strong>read/write: true</strong> in Firestore Rules (for testing purposes)
     </p>
   </div>
 
   <div id="dashboard-content">
     <div class="loading-screen">
       <div class="loader"></div>
-      <p>Firebase se data load ho raha hai...</p>
+      <p>Loading data from Firebase...</p>
     </div>
   </div>
 
 </div>
 
-<!-- ════════════════════════════════════════════
-     🔥 FIREBASE CONFIG — SAME CONFIG YAHAN BHI PASTE KARO
-     (index.html jaisi hi config)
-     ════════════════════════════════════════════ -->
+<!-- FIREBASE CONFIG -->
 <script type="module">
   import { initializeApp }        from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getFirestore, collection, getDocs, query, orderBy, limit }
     from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  // ⬇️ APNI FIREBASE CONFIG YAHAN PASTE KARO (index.html jaisi hi) ⬇️
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBokYzhjcaKf0WMHpPtadpfljuHyk9Nlqk",
-  authDomain: "consumer-rights-india.firebaseapp.com",
-  projectId: "consumer-rights-india",
-  storageBucket: "consumer-rights-india.firebasestorage.app",
-  messagingSenderId: "211902612293",
-  appId: "1:211902612293:web:37e0ef257178464a93742c",
-  measurementId: "G-0008VFCLTG"
-};
-  // ⬆️ CONFIG UPAR TAK ⬆️
+  const firebaseConfig = {
+    apiKey: "AIzaSyBokYzhjcaKf0WMHpPtadpfljuHyk9Nlqk",
+    authDomain: "consumer-rights-india.firebaseapp.com",
+    projectId: "consumer-rights-india",
+    storageBucket: "consumer-rights-india.firebasestorage.app",
+    messagingSenderId: "211902612293",
+    appId: "1:211902612293:web:37e0ef257178464a93742c",
+    measurementId: "G-0008VFCLTG"
+  };
 
   const isConfigured = firebaseConfig.apiKey !== "APNI_API_KEY_YAHAN";
 
@@ -198,9 +192,9 @@ const firebaseConfig = {
 
   // ── HELPERS ──
   function gradeColor(g){
-    if(g.includes('Expert')) return '#F9A825';
-    if(g.includes('Samajh')) return '#4CAF50';
-    if(g.includes('Seekh'))  return '#2196F3';
+    if(g.includes('Expert'))        return '#F9A825';
+    if(g.includes('Smart'))         return '#4CAF50';
+    if(g.includes('Learning'))      return '#2196F3';
     return '#EF5350';
   }
   function pctClass(p){ return p>=90?'pct-hi':p>=70?'pct-mid':'pct-lo'; }
@@ -236,10 +230,10 @@ const firebaseConfig = {
       document.getElementById('dashboard-content').innerHTML=`
         <div class="error-box">
           <h3>❌ Firebase Error</h3>
-          <p>Data load nahi hua. Check karo:<br>
-          1. Config sahi hai? (API key, Project ID)<br>
-          2. Firestore enabled hai?<br>
-          3. Rules mein read allowed hai?<br><br>
+          <p>Data could not be loaded. Please check:<br>
+          1. Is the config correct? (API key, Project ID)<br>
+          2. Is Firestore enabled?<br>
+          3. Is read access allowed in Rules?<br><br>
           Error: <code>${e.message}</code></p>
           <br><button class="export-btn" onclick="loadDashboard()">🔄 Retry</button>
         </div>`;
@@ -266,10 +260,19 @@ const firebaseConfig = {
     }).length;
 
     // Grade distribution
-    const grades={'🏆 Expert':0,'🥇 Samajhdaar':0,'📚 Seekhne wale':0,'⚠️ Beginner':0};
+    const grades={
+      '🏆 Expert':0,
+      '🥇 Smart Consumer':0,
+      '📚 Learning':0,
+      '⚠️ Beginner':0
+    };
     results.forEach(r=>{
       const g = r.grade||'⚠️ Beginner';
-      if(grades[g]!==undefined) grades[g]++; else grades['⚠️ Beginner']++;
+      // Map old Hindi grade keys to English
+      if(g.includes('Expert'))       grades['🏆 Expert']++;
+      else if(g.includes('Smart') || g.includes('Samajh')) grades['🥇 Smart Consumer']++;
+      else if(g.includes('Learn') || g.includes('Seekh'))  grades['📚 Learning']++;
+      else                           grades['⚠️ Beginner']++;
     });
 
     // Score buckets
@@ -294,16 +297,21 @@ const firebaseConfig = {
     // Recent results
     const recent=results.slice(0,10);
 
-    const gradeColors={'🏆 Expert':'#F9A825','🥇 Samajhdaar':'#4CAF50','📚 Seekhne wale':'#2196F3','⚠️ Beginner':'#EF5350'};
+    const gradeColors={
+      '🏆 Expert':'#F9A825',
+      '🥇 Smart Consumer':'#4CAF50',
+      '📚 Learning':'#2196F3',
+      '⚠️ Beginner':'#EF5350'
+    };
 
     document.getElementById('dashboard-content').innerHTML=`
 
       <div class="stats-grid">
         <div class="stat-card"><span class="stat-num">${totalVisits}</span><div class="stat-lbl">Total Visits</div></div>
-        <div class="stat-card"><span class="stat-num">${todayVisits}</span><div class="stat-lbl">Aaj ke Visits</div></div>
+        <div class="stat-card"><span class="stat-num">${todayVisits}</span><div class="stat-lbl">Today's Visits</div></div>
         <div class="stat-card"><span class="stat-num">${totalQuiz}</span><div class="stat-lbl">Quiz Attempts</div></div>
         <div class="stat-card"><span class="stat-num">${avgPct}%</span><div class="stat-lbl">Avg Score</div></div>
-        <div class="stat-card"><span class="stat-num">${passCount}</span><div class="stat-lbl">Pass (70%+)</div></div>
+        <div class="stat-card"><span class="stat-num">${passCount}</span><div class="stat-lbl">Passed (70%+)</div></div>
         <div class="stat-card"><span class="stat-num">${compRate}%</span><div class="stat-lbl">Quiz Completion</div></div>
       </div>
 
@@ -326,7 +334,7 @@ const firebaseConfig = {
             <div class="sd-bar" style="height:${Math.max(6,Math.round((b/maxB)*88))}px;background:rgba(255,179,71,${0.2+(b/maxB)*0.65})" data-count="${b}"></div>
             <div class="sd-lbl">${['0-3','4-6','7-9','10-12','13-15'][i]}</div>
           </div>`).join('')}
-        </div>`:'<div class="no-data">Abhi koi quiz attempt nahi hua</div>'}
+        </div>`:'<div class="no-data">No quiz attempts yet</div>'}
       </div>
 
       <div class="section">
@@ -344,7 +352,7 @@ const firebaseConfig = {
       <div class="section">
         <div class="sec-title" style="justify-content:space-between">
           <span>🕐 Recent Quiz Results</span>
-          <button class="export-btn" onclick="exportCSV()">⬇️ CSV Export</button>
+          <button class="export-btn" onclick="exportCSV()">⬇️ Export CSV</button>
         </div>
         <div class="recent-list">
           ${recent.length>0?recent.map(r=>`
@@ -355,7 +363,7 @@ const firebaseConfig = {
             </div>
             <div class="r-pct-badge ${pctClass(r.pct||0)}">${r.pct||0}%</div>
             <div class="r-time-lbl">${fmtDate(r.time)}</div>
-          </div>`).join(''):'<div class="no-data">Koi quiz result nahi mila abhi tak</div>'}
+          </div>`).join(''):'<div class="no-data">No quiz results found yet</div>'}
         </div>
       </div>
     `;
@@ -364,13 +372,13 @@ const firebaseConfig = {
     window._quizResults = results;
   }
 
-  // ── DEMO MODE (jab config nahi hai) ──
+  // ── DEMO MODE (when config is not set) ──
   function renderDemo(){
     const demoResults=[
       {score:14,total:15,pct:93,grade:'🏆 Expert',time:null},
-      {score:11,total:15,pct:73,grade:'🥇 Samajhdaar',time:null},
-      {score:8,total:15,pct:53,grade:'📚 Seekhne wale',time:null},
-      {score:4,total:15,pct:27,grade:'⚠️ Beginner',time:null},
+      {score:11,total:15,pct:73,grade:'🥇 Smart Consumer',time:null},
+      {score:8, total:15,pct:53,grade:'📚 Learning',time:null},
+      {score:4, total:15,pct:27,grade:'⚠️ Beginner',time:null},
     ];
     renderDashboard([{},{},{},{},{},{},{},{},{},{}], demoResults);
   }
@@ -378,7 +386,7 @@ const firebaseConfig = {
   // ── CSV EXPORT ──
   window.exportCSV = function(){
     const data = window._quizResults || [];
-    if(!data.length){ alert('Koi data nahi hai export karne ke liye!'); return; }
+    if(!data.length){ alert('No data available to export!'); return; }
     const rows=[['Score','Total','Percentage','Grade','Time']];
     data.forEach(r=>{
       const t = r.time ? (r.time.toDate?r.time.toDate():new Date(r.time)).toLocaleString('en-IN') : 'N/A';
